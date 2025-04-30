@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perfil - Concha</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>🎬 Concha</h1>
+      <nav>
+        <a href="index.html">Início</a>
+        <a href="#">Filmes</a>
+        <a href="#">Séries</a>
+        <a href="perfil.html">Perfil</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro-banner">
+      <h2>Seu Perfil</h2>
+      <p>Veja ou edite suas informações de conta abaixo.</p>
+    </section>
+
+    <form id="profile-form">
+      <label for="name">Nome:</label><br />
+      <input type="text" id="name" name="name" required /><br /><br />
+
+      <label for="email">Email:</label><br />
+      <input type="email" id="email" name="email" required /><br /><br />
+
+      <button type="submit">Salvar</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Concha. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    // Verifica se há usuário logado
+    const session = JSON.parse(localStorage.getItem('sessionUser'));
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+
+    if (!session) {
+      alert('Você precisa estar logado para acessar esta página.');
+      window.location.href = 'login.html';
+    } else {
+      nameInput.value = session.name;
+      emailInput.value = session.email;
+    }
+
+    // Atualiza informações do usuário
+    document.getElementById('profile-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const updatedUser = {
+        name: nameInput.value,
+        email: emailInput.value
+      };
+
+      localStorage.setItem('sessionUser', JSON.stringify(updatedUser));
+      alert('Informações atualizadas com sucesso!');
+    });
+  </script>
+</body>
+</html>
