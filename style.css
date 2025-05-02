@@ -177,6 +177,11 @@ body {
   .login-container h1 {
     color: #a78bfa;
     margin-bottom: 1.5rem;
+    background-image: url('images/logo-concha.png');
+    background-size: 150px auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 30px;
   }
   
   form {
