@@ -216,11 +216,50 @@ body {
   }
   
   button:hover {
-    background-color: #9f7aea;
+    background-color: #a07bea;
   }
   
   .error {
     color: red;
     margin-top: 0.5rem;
+  }
+  
+  #botao-voltar {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 10px 15px;
+    color: #ffffff; /* Cor do texto, pode mudar para qualquer cor desejada */
+    border: none; 
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    z-index: 1000;
+    background-color: transparent; /* Remove o fundo */
+  }
+  
+  #botao-voltar:hover {
+    background-color: transparent; /* Mantém sem fundo ao passar o mouse */
+    color: #a07bea; /* Muda a cor do texto quando passar o mouse */
+  }
+
+  .singup-container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 2rem;
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    text-align: center;
+  }
+  
+  .singup-container h1 {
+    color: #a78bfa;
+    margin-bottom: 1.5rem;
+    background-image: url('images/logo-concha.png');
+    background-size: 150px auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 30px;
   }
   
