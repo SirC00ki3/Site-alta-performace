@@ -14,9 +14,19 @@ fetch(API_URL)
         <div class="movie-info">
           <h3>${movie.title}</h3>
           <p>⭐ ${movie.vote_average}</p>
+          <button class="details-btn" data-id="${movie.id}">Ver detalhes</button>
         </div>
       `;
       moviesContainer.appendChild(card);
+    });
+
+    // Adicionar evento aos botões
+    document.querySelectorAll('.details-btn').forEach(button => {
+      button.addEventListener('click', event => {
+        const movieId = event.target.getAttribute('data-id');
+        // Redireciona para a página oficial do filme no TMDb
+        window.open(`https://www.themoviedb.org/movie/${movieId}`, '_blank');
+      });
     });
   })
   .catch(error => {
