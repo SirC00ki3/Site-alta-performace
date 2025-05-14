@@ -23,12 +23,6 @@ function fetchMovies(endpoint, containerId) {
     .catch(error => {
       console.error(`Erro ao carregar ${containerId}:`, error);
     });
-<<<<<<< HEAD
-  })
-  .catch(error => {
-    console.error('Erro ao carregar os filmes:', error);
-  });
-=======
 }
 
 // Chama para cada seção
@@ -36,4 +30,3 @@ fetchMovies('/movie/popular', 'movies-container'); // Filmes Populares
 fetchMovies('/trending/movie/week', 'weekly-popular-container'); // Populares da Semana
 fetchMovies('/movie/top_rated', 'top-rated-container'); // Melhores Avaliados
 fetchMovies('/movie/now_playing', 'recent-releases-container'); // Recém Lançados
->>>>>>> 1a103a3 (Commit focado na apresentação do index)

@@ -26,8 +26,4 @@ document.getElementById('login-form').addEventListener('submit', function (e) {
   } else {
     errorMessage.textContent = 'E-mail ou senha incorretos.';
   }
-<<<<<<< HEAD
 });
-=======
-});
->>>>>>> 1a103a3 (Commit focado na apresentação do index)

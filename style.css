@@ -1,9 +1,4 @@
 body {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> 1a103a3 (Commit focado na apresentação do index)
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #0d0d0d;
     color: #ffffff;
@@ -93,7 +88,7 @@ body {
     height: 20px;
   }
   
-  /* Restante do seu estilo (sem alterações) */
+  /* Conteúdo principal */
   main {
     padding: 2rem 1rem;
     max-width: 1100px;
@@ -169,7 +164,7 @@ body {
     border-top: 2px solid #7c3aed;
   }
   
-  .login-container {
+  .login-container, .singup-container {
     max-width: 400px;
     margin: 100px auto;
     padding: 2rem;
@@ -178,8 +173,9 @@ body {
     box-shadow: 0 4px 12px rgba(0,0,0,0.5);
     text-align: center;
   }
-  
-  .login-container h1 {
+
+  .login-container h1,
+  .singup-container h1 {
     color: #a78bfa;
     margin-bottom: 1.5rem;
     background-image: url('images/logo-concha.png');
@@ -225,8 +221,9 @@ body {
   }
   
   .error {
+    margin-top: 10px;
     color: red;
-    margin-top: 0.5rem;
+    font-weight: 500;
   }
   
   #botao-voltar {
@@ -234,352 +231,53 @@ body {
     top: 20px;
     left: 20px;
     padding: 10px 15px;
-    color: #ffffff; /* Cor do texto, pode mudar para qualquer cor desejada */
-    border: none; 
+    color: #ffffff;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 14px;
     z-index: 1000;
-    background-color: transparent; /* Remove o fundo */
+    background-color: transparent;
   }
   
   #botao-voltar:hover {
-    background-color: transparent; /* Mantém sem fundo ao passar o mouse */
-    color: #a07bea; /* Muda a cor do texto quando passar o mouse */
+    background-color: transparent;
+    color: #a07bea;
   }
 
-  .singup-container {
-    max-width: 400px;
-    margin: 100px auto;
-    padding: 2rem;
-    background-color: #1a1a1a;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  .features-section {
+    background-color: #1c1c1c;
+    padding: 3rem 1rem;
     text-align: center;
   }
-  
-  .singup-container h1 {
-    color: #a78bfa;
-    margin-bottom: 1.5rem;
-    background-image: url('images/logo-concha.png');
-    background-size: 150px auto;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 30px;
+
+  .features-section h2 {
+    color: #b58aff;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
   }
-  
-<<<<<<< HEAD
-=======
-=======
-body {
->>>>>>> 1a103a3 (Commit focado na apresentação do index)
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #0d0d0d;
-  color: #ffffff;
-  margin: 0;
-  padding: 0;
-}
 
-header {
-  background-color: #1a1a1a;
-  padding: 1rem 0;
-  border-bottom: 2px solid #7c3aed;
-}
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 
-.navbar {
-  height: 70px;
-  overflow: visible;
-}
+  .feature-card {
+    background-color: #2a2a2a;
+    color: #d1d1d1;
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    box-shadow: 0 0 10px rgba(181, 138, 255, 0.1);
+  }
 
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-/* Logo */
-.logo {
-  height: 70px;
-  transform: scale(1.5);
-  transform-origin: center;
-}
-
-/* Links de navegação */
-.nav-links {
-  display: flex;
-  gap: 20px;
-  margin-left: 40px;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #d1d5db;
-  font-weight: bold;
-  transition: color 0.2s;
-}
-
-.nav-links a:hover {
-  color: #a78bfa;
-}
-
-/* Ações do lado direito (idioma, login etc) */
-.nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.nav-actions a {
-  color: #d1d5db;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.nav-actions a:hover {
-  color: #a78bfa;
-}
-
-.lang-btn {
-  background: transparent;
-  border: 1px solid #fff;
-  color: white;
-  padding: 4px 8px;
-  cursor: pointer;
-  border-radius: 4px;
-  font-weight: bold;
-}
-
-.lang-btn:hover {
-  background-color: #7c3aed;
-}
-
-/* Ícones */
-.icon {
-  width: 20px;
-  height: 20px;
-}
-
-/* Restante do seu estilo (sem alterações) */
-main {
-  padding: 2rem 1rem;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.intro-banner {
-  background: linear-gradient(135deg, #2a2a2a, #1f1f1f);
-  padding: 2rem;
-  border-radius: 12px;
-  text-align: center;
-  margin-bottom: 2rem;
-  border: 1px solid #333;
-}
-
-.intro-banner h2 {
-  color: #a78bfa;
-  margin-bottom: 0.5rem;
-}
-
-.section-title h2 {
-  font-size: 1.5rem;
-  color: #a78bfa;
-  margin-bottom: 1rem;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1.5rem;
-}
-
-.movie-card {
-  background-color: #1c1c1c;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s;
-  border: 1px solid #2f2f2f;
-}
-
-.movie-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 16px rgba(124, 58, 237, 0.6);
-}
-
-.movie-card img {
-  width: 100%;
-  height: 270px;
-  object-fit: cover;
-}
-
-.movie-info {
-  padding: 0.8rem 1rem;
-}
-
-.movie-info h3 {
-  margin: 0 0 0.5rem 0;
-  font-size: 1rem;
-  color: #e0e0e0;
-}
-
-.movie-info p {
-  margin: 0;
-  color: #a78bfa;
-}
-
-footer {
-  background-color: #1a1a1a;
-  padding: 1rem;
-  text-align: center;
-  color: #777;
-  border-top: 2px solid #7c3aed;
-}
-
-.login-container {
-  max-width: 400px;
-  margin: 100px auto;
-  padding: 2rem;
-  background-color: #1a1a1a;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-  text-align: center;
-}
-
-.login-container h1 {
-  color: #a78bfa;
-  margin-bottom: 1.5rem;
-  background-image: url('images/logo-concha.png');
-  background-size: 150px auto;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 30px;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-}
-
-label {
-  text-align: left;
-  margin-bottom: 0.3rem;
-  color: #d1d5db;
-}
-
-input {
-  padding: 0.6rem;
-  margin-bottom: 1rem;
-  border: none;
-  border-radius: 5px;
-  background-color: #2a2a2a;
-  color: #fff;
-}
-
-button {
-  padding: 0.6rem;
-  background-color: #7c3aed;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-button:hover {
-  background-color: #a07bea;
-}
-
-.error {
-  color: red;
-  margin-top: 0.5rem;
-}
-
-#botao-voltar {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  padding: 10px 15px;
-  color: #ffffff; /* Cor do texto, pode mudar para qualquer cor desejada */
-  border: none; 
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
-  z-index: 1000;
-  background-color: transparent; /* Remove o fundo */
-}
-
-#botao-voltar:hover {
-  background-color: transparent; /* Mantém sem fundo ao passar o mouse */
-  color: #a07bea; /* Muda a cor do texto quando passar o mouse */
-}
-
-.singup-container {
-  max-width: 400px;
-  margin: 100px auto;
-  padding: 2rem;
-  background-color: #1a1a1a;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-  text-align: center;
-}
-
-.singup-container h1 {
-  color: #a78bfa;
-  margin-bottom: 1.5rem;
-  background-image: url('images/logo-concha.png');
-  background-size: 150px auto;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 30px;
-}
-
-.error {
-  margin-top: 10px;
-  color: red;
-  font-weight: 500;
-}
-<<<<<<< HEAD
->>>>>>> ac360d9e70598b3e0267528c2fea6dcae031c094
-=======
-
-.features-section {
-  background-color: #1c1c1c;
-  padding: 3rem 1rem;
-  text-align: center;
-}
-
-.features-section h2 {
-  color: #b58aff;
-  font-size: 1.8rem;
-  margin-bottom: 2rem;
-}
-
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.feature-card {
-  background-color: #2a2a2a;
-  color: #d1d1d1;
-  padding: 1.5rem;
-  border-radius: 10px;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  box-shadow: 0 0 10px rgba(181, 138, 255, 0.1);
-}
-
-.feature-card .icon {
-  font-size: 2rem;
-  color: #b58aff;
-}
->>>>>>> 1a103a3 (Commit focado na apresentação do index)
+  .feature-card .icon {
+    font-size: 2rem;
+    color: #b58aff;
+  }
