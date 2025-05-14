@@ -1,5 +1,9 @@
 body {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1a103a3 (Commit focado na apresentação do index)
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #0d0d0d;
     color: #ffffff;
@@ -264,7 +268,11 @@ body {
     padding: 30px;
   }
   
+<<<<<<< HEAD
 =======
+=======
+body {
+>>>>>>> 1a103a3 (Commit focado na apresentação do index)
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #0d0d0d;
   color: #ffffff;
@@ -534,4 +542,44 @@ button:hover {
   color: red;
   font-weight: 500;
 }
+<<<<<<< HEAD
 >>>>>>> ac360d9e70598b3e0267528c2fea6dcae031c094
+=======
+
+.features-section {
+  background-color: #1c1c1c;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.features-section h2 {
+  color: #b58aff;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  background-color: #2a2a2a;
+  color: #d1d1d1;
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  box-shadow: 0 0 10px rgba(181, 138, 255, 0.1);
+}
+
+.feature-card .icon {
+  font-size: 2rem;
+  color: #b58aff;
+}
+>>>>>>> 1a103a3 (Commit focado na apresentação do index)
