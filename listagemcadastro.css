@@ -1,0 +1,185 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilo base */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0d0d0d;
+  color: #ffffff;
+  line-height: 3.6;
+}
+
+/* Cabeçalho */
+header.navbar {
+  background-color: #1a1a1a;
+  border-bottom: 2px solid #7c3aed;
+}
+
+/* Container do cabeçalho com logo e menu centralizado */
+.container-header {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Logo fixada à esquerda */
+.logo-area {
+  position: absolute;
+  left: 1rem;
+  top: 65%;
+  transform: translateY(-50%);
+}
+
+.logo {
+  height: 100px;
+}
+
+/* Menu centralizado */
+.nav-links-center {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.nav-links-center a {
+  text-decoration: none;
+  color: #d1d5db;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+.nav-links-center a:hover {
+  color: #a78bfa;
+}
+
+/* Conteúdo principal */
+main.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main h2 {
+  font-size: 1.8rem;
+  color: #a78bfa;
+  margin-bottom: 1.5rem;
+  align-self: flex-start;
+}
+
+/* Campo de busca */
+#searchInput {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #3a3a3a;
+  background-color: #2a2a2a;
+  color: white;
+  margin-bottom: 2rem;
+}
+
+#searchInput::placeholder {
+  color: #aaa;
+}
+
+/* Tabela de usuários */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+table th, table td {
+  padding: 1rem;
+  text-align: left;
+}
+
+table th {
+  background-color: #2a2a2a;
+  color: #a78bfa;
+  font-weight: 600;
+  border-bottom: 1px solid #3a3a3a;
+}
+
+table td {
+  border-bottom: 1px solid #2f2f2f;
+  color: #e5e5e5;
+}
+
+table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .container-header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo-area {
+    position: static;
+    transform: none;
+    margin-bottom: 0.5rem;
+  }
+
+  .nav-links-center {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  main.container {
+    padding: 1rem;
+  }
+}
+main.container h2 {
+  text-align: center;
+  align-self: center; /* centraliza no eixo principal do flex */
+}
+
+/* Botões de ação */
+.editar-btn,
+.excluir-btn {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  margin-right: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.editar-btn {
+  background-color: #3b82f6; /* azul */
+  color: white;
+}
+
+.editar-btn:hover {
+  background-color: #2563eb;
+}
+
+.excluir-btn {
+  background-color: #ef4444; /* vermelho */
+  color: white;
+}
+
+.excluir-btn:hover {
+  background-color: #dc2626;
+}
