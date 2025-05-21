@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Concha - Usuários</title>
+  <link rel="stylesheet" href="listagemcadastro.css" />
+</head>
+<body>
+
+  <!-- Cabeçalho com logo à esquerda e menu centralizado -->
+  <header class="navbar">
+    <div class="container-header">
+      <div class="logo-area">
+        <a href="index.html">
+          <img src="images/logo-concha.png" alt="Logo Concha" class="logo" />
+        </a>
+      </div>
+      <nav class="nav-links-center">
+        <a href="#">Filmes</a>
+        <a href="#">Séries</a>
+        <a href="minhalista.html">Minha lista</a>
+        <a href="#">Membros</a>
+        <a href="#">Diário</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Conteúdo principal -->
+  <main class="container">
+    <h2>Usuários Cadastrados</h2>
+
+    <input type="text" id="searchInput" placeholder="Buscar por nome ou e-mail..." />
+
+    <table>
+      <thead>
+  <tr>
+    <th>Nome</th>
+    <th>E-mail</th>
+    <th>Ações</th>
+  </tr>
+</thead>
+      <tbody id="usuariosBody">
+        <!-- Conteúdo gerado via JavaScript -->
+      </tbody>
+    </table>
+  </main>
+
+  <script src="listagemcadastro.js"></script>
+</body>
+</html>
