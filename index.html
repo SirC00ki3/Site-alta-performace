@@ -2,102 +2,106 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Concha - Filmes</title>
   <link rel="stylesheet" href="style.css" />
+   <link rel="stylesheet" href="dark-theme.css">
 </head>
 <body>
-  <header class="navbar">
-    <div class="container">
-      <a href="index.html" class="logo-area">
-        <img src="images/logo-concha.png" alt="Logo Concha" class="logo" />
+</body>
+<header class="navbar" role="banner">
+  <div class="container">
+    <a href="index.html" class="logo-area" aria-label="Página inicial">
+      <img src="images/logo-concha.png" alt="Logo da Concha" class="logo" />
+    </a>
+
+    <nav class="nav-links" aria-label="Navegação principal">
+      <a href="filmes.html">Filmes</a>
+      <a href="listas.html">Listas</a>
+      <a href="membros.html">Membros</a>
+      <a href="diario.html">Diário</a>
+       <button id="toggle-theme">Alternar Tema</button>
+    </nav>
+
+    <div class="nav-actions" role="navigation" aria-label="Ações do usuário">
+      
+      <button class="lang-btn" aria-label="Trocar idioma">PT</button>
+      <a href="login.html">Entrar</a>
+      <a href="cadastro.html" class="btn">Cadastre-se</a>
+      <a href="#" aria-label="Pesquisar">
+        <img src="images/search-icon.png" alt="Ícone de pesquisa" class="icon" />
       </a>
-
-      <nav class="nav-links">
-        <a href="#">Filmes</a>
-        <a href="#">Séries</a>
-        <a href="#">Listas</a>
-        <a href="#">Membros</a>
-        <a href="#">Diário</a>
-      </nav>
-
-      <div class="nav-actions">
-        <button class="lang-btn">PT</button>
-        <a href="login.html">Entrar</a>
-        <a href="cadastro.html" class="btn">Cadastre-se</a>
-        <a href="#"><img src="images/search-icon.png" alt="Pesquisar" class="icon" /></a>
-      </div>
-    </div>
-  </header>
-
- <main>
-  <section class="intro-banner">
-    <h2>Descubra filmes, avalie e compartilhe com seus amigos!</h2>
-    <p>Explore os mais populares agora mesmo.</p>
-  </section>
-
-  <div id="movies-container" class="grid"></div>
-
-<section class="features-section">
-  <h2>O Concha permite que você...</h2>
-  <div class="features-grid">
-    <div class="feature-card">
-      <span class="icon">👁️</span>
-      <p>Mantenha um registro de todos os filmes que você já assistiu (ou comece a partir do dia em que se inscrever)</p>
-    </div>
-    <div class="feature-card">
-      <span class="icon">❤️</span>
-      <p>Demostre seu amor por seus filmes, listas e críticas favoritas com um “curtir”</p>
-    </div>
-    <div class="feature-card">
-      <span class="icon">📝</span>
-      <p>Escreva e compartilhe avaliações e siga amigos e outros membros para ler as deles</p>
-    </div>
-    <div class="feature-card">
-      <span class="icon">⭐</span>
-      <p>Avalie cada filme em uma escala de cinco estrelas (com metades) para registrar e compartilhar sua reação</p>
-    </div>
-    <div class="feature-card">
-      <span class="icon">📅</span>
-      <p>Mantenha um diário de suas exibições de filmes (e atualize para o <strong>Pro</strong> para obter estatísticas abrangentes)</p>
-    </div>
-    <div class="feature-card">
-      <span class="icon">📋</span>
-      <p>Compile e compartilhe listas de filmes sobre qualquer tópico e mantenha uma lista de filmes para assistir</p>
     </div>
   </div>
-</section>
+</header>
+  <main role="main">
+    <section class="intro-banner" aria-labelledby="intro-title">
+      <h2 id="intro-title">Descubra filmes, avalie e compartilhe com seus amigos!</h2>
+      <p> <h3>Explore os mais populares agora mesmo</h3></p>
+    </section>
 
-<section class="section-title" style="display: flex; justify-content: space-between; align-items: center;">
-  <h2>Acabei de Revisar...</h2>
-  <span class="watched-count">2.631.920.688 filmes assistidos</span>
-</section>
+    <section class="section-title" aria-label="Filmes Populares">
+      <h2>Filmes Populares</h2>
+    </section>
+    <div id="movies-container" class="scroll-row" role="list"></div>
 
-<div id="weekly-popular-container" class="scroll-row"></div>
+    <section class="features-section" aria-labelledby="features-title">
+      <h2 id="features-title">O Concha permite que você...</h2>
+      <div class="features-grid">
+        <div class="feature-card" role="listitem">
+          <span class="icon" aria-hidden="true">👁️</span>
+          <p>Mantenha um registro de todos os filmes que você já assistiu (ou comece a partir do dia em que se inscrever)</p>
+        </div>
+        <div class="feature-card" role="listitem">
+          <span class="icon" aria-hidden="true">❤️</span>
+          <p>Demostre seu amor por seus filmes, listas e críticas favoritas com um “curtir”</p>
+        </div>
+        <div class="feature-card" role="listitem">
+          <span class="icon" aria-hidden="true">📝</span>
+          <p>Escreva e compartilhe avaliações e siga amigos e outros membros para ler as deles</p>
+        </div>
+        <div class="feature-card" role="listitem">
+          <span class="icon" aria-hidden="true">⭐</span>
+          <p>Avalie cada filme em uma escala de cinco estrelas (com metades) para registrar e compartilhar sua reação</p>
+        </div>
+        <div class="feature-card" role="listitem">
+          <span class="icon" aria-hidden="true">📅</span>
+          <p>Mantenha um diário de suas exibições de filmes (e atualize para o <strong>Pro</strong> para obter estatísticas abrangentes)</p>
+        </div>
+        <div class="feature-card" role="listitem">
+          <span class="icon" aria-hidden="true">📋</span>
+          <p>Compile e compartilhe listas de filmes sobre qualquer tópico e mantenha uma lista de filmes para assistir</p>
+        </div>
+      </div>
+    </section>
 
-<div class="review-message">
-  <h3>Escreva e compartilhe resenhas. Crie suas próprias listas. Compartilhe sua vida no cinema.</h3>
-  <p>
-    Abaixo estão algumas análises e listas populares desta semana.
-    <a href="#">Cadastre-se</a> para criar a sua.
-  </p>
-</div>
+    <section class="section-title" style="display: flex; justify-content: space-between; align-items: center;" aria-label="Acabei de Revisar">
+      <h2>Acabei de Revisar...</h2>
+      <span class="watched-count">2.631.920 filmes assistidos</span>
+    </section>
+    <div id="weekly-popular-container" class="scroll-row" role="list"></div>
 
- <section class="section-title" style="display: flex; justify-content: space-between; align-items: center;">
-  <h2>Avaliações Populares Desta Semana</h2>
-  <a href="#" class="see-more">MAIS</a>
-</section>
+    <section class="review-message" aria-label="Mensagem para escrever resenhas">
+      <h3>Escreva e compartilhe resenhas. Crie suas próprias listas. Compartilhe sua vida no cinema.</h3>
+      <p>
+        Abaixo estão algumas análises e listas populares desta semana.
+        <a href="cadastro.html">Cadastre-se</a> para criar a sua.
+      </p>
+    </section>
 
-<div id="top-rated-container" class="popular-reviews"></div>
+    <section class="section-title" style="display: flex; justify-content: space-between; align-items: center;" aria-label="Avaliações Populares Desta Semana">
+      <h2>Avaliações Populares Desta Semana</h2>
+      <a href="#" class="see-more">MAIS</a>
+    </section>
+    <div id="top-rated-container" class="popular-reviews" role="list"></div>
 
+    <section class="section-title" aria-label="Recém Lançados">
+      <h2>Recém Lançados</h2>
+    </section>
+    <div id="recent-releases-container" class="scroll-row" role="list"></div>
+  </main>
 
-  <section class="section-title">
-    <h2>Recém Lançados</h2>
-  </section>
-  <div id="recent-releases-container" class="grid"></div>
-</main>
-
-  <footer>
+  <footer role="contentinfo">
     <p>&copy; 2025 Concha. Todos os direitos reservados.</p>
   </footer>
 

@@ -71,7 +71,7 @@ body {
   .lang-btn {
     background: transparent;
     border: 1px solid #fff;
-    color: white;
+    color: purple;
     padding: 4px 8px;
     cursor: pointer;
     border-radius: 4px;
@@ -112,6 +112,11 @@ body {
   .section-title h2 {
     font-size: 1.5rem;
     color: #a78bfa;
+    margin-bottom: 1rem;
+  }
+   .section-title h3 {
+    font-size: 0.8rem;
+    color: purple;
     margin-bottom: 1rem;
   }
   
@@ -210,7 +215,7 @@ body {
     background-color: #7c3aed;
     border: none;
     border-radius: 5px;
-    color: white;
+    color: purple;
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.2s;
@@ -307,7 +312,7 @@ body {
 .section-title {
   margin: 2rem 0 1rem 0;
   padding: 0 1rem;
-  color: white;
+  color: purple;
 }
 
 .section-title .watched-count {
@@ -344,7 +349,7 @@ body {
   font-size: 1.5rem;
   font-weight: 400;
   margin-bottom: 1rem;
-  color: white;
+  color: purple;
 }
 
 .review-message p {
@@ -365,7 +370,7 @@ body {
 .section-title {
   margin: 2rem 0 1rem 0;
   padding: 0 1rem;
-  color: white;
+  color: purple;
   font-size: 1rem;
 }
 
@@ -413,7 +418,7 @@ body {
   flex-wrap: wrap;
   gap: 0.5rem;
   font-weight: bold;
-  color: white;
+  color: purple;
 }
 
 .review-header .year {
@@ -455,7 +460,7 @@ body {
   padding: 1rem;
   border-radius: 10px;
   border-bottom: 1px solid #333;
-  color: white;
+  color: purple;
 }
 
 .review-card img {
@@ -488,3 +493,93 @@ body {
   color: #aaa;
 }
 
+/* ========== RESPONSIVIDADE ========== */
+
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-left: 0;
+  }
+
+  .nav-actions {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    transform: scale(1.2);
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .nav-links,
+  .nav-actions {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+  }
+
+  .movie-card {
+    width: 100% !important;
+  }
+
+  .review-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .review-card img {
+    width: 100px;
+    height: auto;
+  }
+
+  .review-content {
+    padding: 0;
+  }
+}
+body {
+  background-color: #ffffff;
+  color: #000000;
+  font-family: sans-serif;
+}
+
+button {
+  background-color: #000;
+  color: #fff;
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+}
+body.dark-theme {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-theme button {
+  background-color: #fff;
+  color: #000;
+}

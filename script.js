@@ -1,7 +1,7 @@
 const API_KEY = '574ae54f6fd66e60543359675d336fe5';
 const IMG_BASE_URL = 'https://image.tmdb.org/t/p/w500';
 
-// Reviews personalizadas apenas para 'top-rated-container'
+// Dados personalizados para a seção "Avaliações Populares"
 const customReviews = [
   {
     title: 'Thunderbolts*',
@@ -52,25 +52,31 @@ const customReviews = [
     title: 'Thunderbolts*',
     year: 2025,
     username: 'Iman Vellani',
-    text: 'Cinco desajustados emocionalmente constipados são forçados a criar laços traumáticos sob o olhar atento de uma figura de autoridade moralmente falida e... ah, hum, então este é o clube do café da manhã com uniforme tático. Eu vivo.',
+    text: 'Cinco desajustados emocionalmente constipados são forçados a criar laços traumáticos sob o olhar atento de uma figura de autoridade moralmente falida e ah, hum, então este é o clube do café da manhã com uniforme tático. Eu vivo.',
     likes: 6500,
     vote: 4.2,
     poster: '/qWQSnedj0LCUjWNp9fLcMtfgadp.jpg'
   }
 ];
 
-// Função principal
+/**
+ * Carrega e exibe filmes ou reviews em um contêiner da página.
+ * @param {string} endpoint - Endpoint da TMDB API.
+ * @param {string} containerId - ID do contêiner no HTML.
+ */
 function fetchMovies(endpoint, containerId) {
   const container = document.getElementById(containerId);
+  if (!container) return;
+
   container.innerHTML = '';
 
-  // Se for a seção de Avaliações Populares (top-rated), use os dados mockados
+  // Se for o container de reviews personalizados
   if (containerId === 'top-rated-container') {
-    customReviews.slice(0, 6).forEach(review => {
+    customReviews.forEach(review => {
       const card = document.createElement('div');
       card.className = 'review-card';
       card.innerHTML = `
-        <img src="${IMG_BASE_URL}${review.poster}" alt="${review.title}" />
+        <img src="${IMG_BASE_URL}${review.poster}" alt="Poster do filme ${review.title}" />
         <div class="review-content">
           <div class="review-title">${review.title} <span style="color: #888">(${review.year})</span></div>
           <div class="review-user">👤 ${review.username}</div>
@@ -80,21 +86,26 @@ function fetchMovies(endpoint, containerId) {
       `;
       container.appendChild(card);
     });
-    return; // Impede que continue tentando buscar da API
+    return;
   }
 
-  // Para outras seções, use a API normalmente
+  // Para os demais containers, busca na API
   fetch(`https://api.themoviedb.org/3${endpoint}?api_key=${API_KEY}&language=pt-BR&page=1`)
-    .then(res => res.json())
+    .then(response => response.json())
     .then(data => {
+      if (!data.results || data.results.length === 0) {
+        container.innerHTML = '<p>Nenhum filme encontrado.</p>';
+        return;
+      }
+
       data.results.forEach(movie => {
         const card = document.createElement('div');
         card.className = 'movie-card';
         card.innerHTML = `
-          <img src="${IMG_BASE_URL}${movie.poster_path}" alt="${movie.title}" />
+          <img src="${IMG_BASE_URL}${movie.poster_path}" alt="Capa de ${movie.title}" />
           <div class="movie-info">
             <h3>${movie.title}</h3>
-            <p>⭐ ${movie.vote_average}</p>
+            <p>⭐ ${movie.vote_average.toFixed(1)}</p>
           </div>
         `;
         container.appendChild(card);
@@ -102,11 +113,31 @@ function fetchMovies(endpoint, containerId) {
     })
     .catch(error => {
       console.error(`Erro ao carregar ${containerId}:`, error);
+      container.innerHTML = '<p>Erro ao carregar filmes. Tente novamente mais tarde.</p>';
     });
 }
 
-// Chamadas das seções
-fetchMovies('/movie/popular', 'movies-container'); // Filmes Populares
-fetchMovies('/trending/movie/week', 'weekly-popular-container'); // Populares da Semana
-fetchMovies('/movie/top_rated', 'top-rated-container'); // Avaliações Populares (mock)
-fetchMovies('/movie/now_playing', 'recent-releases-container'); // Recém Lançados
+// Inicializa os dados nas seções ao carregar a página
+document.addEventListener('DOMContentLoaded', () => {
+  fetchMovies('/movie/popular', 'movies-container');             // Filmes Populares
+  fetchMovies('/trending/movie/week', 'weekly-popular-container'); // Populares da Semana
+  fetchMovies('/movie/top_rated', 'top-rated-container');        // Avaliações Populares (mock)
+  fetchMovies('/movie/now_playing', 'recent-releases-container'); // Recém Lançados
+});
+const btn = document.getElementById('toggle-theme-btn');
+const body = document.body;
+
+document.addEventListener('DOMContentLoaded', () => {
+  const body = document.body;
+  const toggleBtn = document.getElementById('toggle-theme');
+
+  // Aplica o tema salvo
+  if (localStorage.getItem('theme') === 'dark') {
+    body.classList.add('dark-theme');
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    body.classList.toggle('dark-theme');
+    localStorage.setItem('theme', body.classList.contains('dark-theme') ? 'dark' : 'light');
+  });
+});
