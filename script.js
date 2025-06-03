@@ -1,13 +1,12 @@
 const API_KEY = '574ae54f6fd66e60543359675d336fe5';
 const IMG_BASE_URL = 'https://image.tmdb.org/t/p/w500';
 
-  const moviesContainer = document.getElementById('movies-container');
-  document.body.classList.contains('dark-theme')
-   
+document.addEventListener('DOMContentLoaded', () => {
+  // --- TEMA ESCURO ---
   const toggleBtn = document.getElementById('toggle-theme');
   const body = document.body;
 
-const aplicarTemaSalvo = () => {
+  const aplicarTemaSalvo = () => {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
       body.classList.add('dark-theme');
@@ -20,7 +19,6 @@ const aplicarTemaSalvo = () => {
 
   aplicarTemaSalvo();
 
-  // Alternar tema ao clicar no botão
   toggleBtn.addEventListener('click', () => {
     const isDark = body.classList.toggle('dark-theme');
     if (isDark) {
@@ -31,6 +29,47 @@ const aplicarTemaSalvo = () => {
       toggleBtn.textContent = '☀️';
     }
   });
+
+  // --- LOGIN / BOTÕES DE NAVEGAÇÃO ---
+  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+  let sessionUser;
+
+  try {
+    sessionUser = JSON.parse(localStorage.getItem('sessionUser'));
+  } catch (e) {
+    sessionUser = null;
+  }
+
+  const btnEntrar = document.getElementById('btn-entrar');
+  const btnCadastrar = document.getElementById('btn-cadastrar');
+  const btnPerfil = document.getElementById('btn-perfil');
+  const btnSair = document.getElementById('btn-sair');
+
+  const isSessaoValida = sessionUser && sessionUser.name && sessionUser.email;
+
+  if (isLoggedIn && isSessaoValida) {
+    if (btnEntrar) btnEntrar.style.display = 'none';
+    if (btnCadastrar) btnCadastrar.style.display = 'none';
+    if (btnPerfil) btnPerfil.style.display = 'inline-block';
+    if (btnSair) btnSair.style.display = 'inline-block';
+  } else {
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('sessionUser');
+    if (btnEntrar) btnEntrar.style.display = 'inline-block';
+    if (btnCadastrar) btnCadastrar.style.display = 'inline-block';
+    if (btnPerfil) btnPerfil.style.display = 'none';
+    if (btnSair) btnSair.style.display = 'none';
+  }
+
+  if (btnSair) {
+    btnSair.addEventListener('click', (e) => {
+      e.preventDefault();
+      localStorage.removeItem('isLoggedIn');
+      localStorage.removeItem('sessionUser');
+      window.location.href = 'index.html';
+    });
+  }
+});
 
 // Reviews personalizadas apenas para 'top-rated-container'
 const customReviews = [
@@ -141,3 +180,4 @@ fetchMovies('/movie/popular', 'movies-container'); // Filmes Populares
 fetchMovies('/trending/movie/week', 'weekly-popular-container'); // Populares da Semana
 fetchMovies('/movie/top_rated', 'top-rated-container'); // Avaliações Populares (mock)
 fetchMovies('/movie/now_playing', 'recent-releases-container'); // Recém Lançados
+
