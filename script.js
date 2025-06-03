@@ -1,6 +1,37 @@
 const API_KEY = '574ae54f6fd66e60543359675d336fe5';
 const IMG_BASE_URL = 'https://image.tmdb.org/t/p/w500';
 
+  const moviesContainer = document.getElementById('movies-container');
+  document.body.classList.contains('dark-theme')
+   
+  const toggleBtn = document.getElementById('toggle-theme');
+  const body = document.body;
+
+const aplicarTemaSalvo = () => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      body.classList.add('dark-theme');
+      toggleBtn.textContent = '🌙';
+    } else {
+      body.classList.remove('dark-theme');
+      toggleBtn.textContent = '☀️';
+    }
+  };
+
+  aplicarTemaSalvo();
+
+  // Alternar tema ao clicar no botão
+  toggleBtn.addEventListener('click', () => {
+    const isDark = body.classList.toggle('dark-theme');
+    if (isDark) {
+      localStorage.setItem('theme', 'dark');
+      toggleBtn.textContent = '🌙';
+    } else {
+      localStorage.setItem('theme', 'light');
+      toggleBtn.textContent = '☀️';
+    }
+  });
+
 // Reviews personalizadas apenas para 'top-rated-container'
 const customReviews = [
   {
