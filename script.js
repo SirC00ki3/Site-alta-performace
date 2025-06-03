@@ -2,6 +2,35 @@ const API_KEY = '574ae54f6fd66e60543359675d336fe5';
 const API_URL = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=pt-BR&page=1`;
 
 const moviesContainer = document.getElementById('movies-container');
+document.body.classList.contains('dark-theme')
+
+  const toggleBtn = document.getElementById('toggle-theme');
+  const body = document.body;
+
+const aplicarTemaSalvo = () => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      body.classList.add('dark-theme');
+      toggleBtn.textContent = '🌙';
+    } else {
+      body.classList.remove('dark-theme');
+      toggleBtn.textContent = '☀️';
+    }
+  };
+
+  aplicarTemaSalvo();
+
+  // Alternar tema ao clicar no botão
+  toggleBtn.addEventListener('click', () => {
+    const isDark = body.classList.toggle('dark-theme');
+    if (isDark) {
+      localStorage.setItem('theme', 'dark');
+      toggleBtn.textContent = '🌙';
+    } else {
+      localStorage.setItem('theme', 'light');
+      toggleBtn.textContent = '☀️';
+    }
+  });
 
 fetch(API_URL)
   .then(res => res.json())

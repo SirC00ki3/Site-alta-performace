@@ -1,3 +1,31 @@
+
+  const toggleBtn = document.getElementById('toggle-theme');
+  const body = document.body;
+
+  const aplicarTemaSalvo = () => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      body.classList.add('dark-theme');
+      toggleBtn.textContent = '🌙';
+    } else {
+      body.classList.remove('dark-theme');
+      toggleBtn.textContent = '☀️';
+    }
+  };
+
+  aplicarTemaSalvo();
+
+  toggleBtn.addEventListener('click', () => {
+    const isDark = body.classList.toggle('dark-theme');
+    if (isDark) {
+      localStorage.setItem('theme', 'dark');
+      toggleBtn.textContent = '🌙';
+    } else {
+      localStorage.setItem('theme', 'light');
+      toggleBtn.textContent = '☀️';
+    }
+  });
+
 document.getElementById('singup-form').addEventListener('submit', function (event) {
   event.preventDefault();
 

@@ -1,5 +1,5 @@
 body {
-<<<<<<< HEAD
+
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #0d0d0d;
     color: #ffffff;
@@ -263,14 +263,6 @@ body {
     background-repeat: no-repeat;
     padding: 30px;
   }
-  
-=======
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #0d0d0d;
-  color: #ffffff;
-  margin: 0;
-  padding: 0;
-}
 
 header {
   background-color: #1a1a1a;
@@ -461,14 +453,6 @@ label {
   color: #d1d5db;
 }
 
-input {
-  padding: 0.6rem;
-  margin-bottom: 1rem;
-  border: none;
-  border-radius: 5px;
-  background-color: #2a2a2a;
-  color: #fff;
-}
 
 button {
   padding: 0.6rem;
@@ -534,4 +518,49 @@ button:hover {
   color: red;
   font-weight: 500;
 }
->>>>>>> ac360d9e70598b3e0267528c2fea6dcae031c094
+ #toggle-theme {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px;
+  font-size: 18px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1000;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Tema escuro */
+body.dark-theme #toggle-theme {
+  background-color: #333;
+  color: white;
+  border: 1px solid #252525;
+}
+
+/* Tema claro */
+body:not(.dark-theme) #toggle-theme {
+  background-color: white;
+  color: #111;
+  border: 1px solid #ccc;
+}
+body:not(.dark-theme) {
+  background-color: #f2f2f2; /* tom suave, não branco puro */
+  color: #222;
+}
+body:not(.dark-theme) .login-container {
+  background-color: #ffffffcc; /* branco com transparência leve */
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+body:not(.dark-theme) #botao-voltar {
+  background-color: transparent;
+  color: #111;
+}
+body:not(.dark-theme) .singup-container {
+  background-color: #ffffffcc;
+  color: #222;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+#toggle-theme {
+  top: 30px;
+}
