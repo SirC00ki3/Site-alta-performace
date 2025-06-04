@@ -3,26 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Concha - Usuários</title>
+  <title>Concha - Filmes</title>
   <link rel="stylesheet" href="listagemcadastro.css" />
 </head>
 <body>
-
-  <!-- Cabeçalho com logo à esquerda e menu centralizado -->
   <header class="navbar">
-    <div class="container-header">
-      <div class="logo-area">
-        <a href="index.html">
-          <img src="images/logo-concha.png" alt="Logo Concha" class="logo" />
-        </a>
-      </div>
-      <nav class="nav-links-center">
-        <a href="#">Filmes</a>
-        <a href="#">Séries</a>
-        <a href="minhalista.html">Minha lista</a>
+    <div class="container">
+      <a href="index.html" class="logo-area">
+        <img src="images/logo-concha.png" alt="Logo Concha" class="logo" />
+      </a>
+
+      <nav class="nav-links">
+        <a href="filmes.html">Filmes</a>
         <a href="#">Membros</a>
-        <a href="#">Diário</a>
+        <a href="#">Listas</a>
       </nav>
+
+      <div class="nav-actions">
+        <a href="perfil.html" id="btn-perfil">Perfil</a>
+        <a href="#" id="btn-sair">Sair</a>
+      </div>
     </div>
   </header>
 
@@ -41,11 +41,19 @@
   </tr>
 </thead>
       <tbody id="usuariosBody">
-        <!-- Conteúdo gerado via JavaScript -->
       </tbody>
     </table>
   </main>
-
-  <script src="listagemcadastro.js"></script>
+  <!-- Modal de confirmação -->
+<div id="modalConfirmacao" class="modal-overlay hidden">
+  <div class="modal">
+    <p>Deseja realmente excluir este usuário?</p>
+    <div class="botoes-modal">
+      <button id="btnConfirmar">Sim</button>
+      <button id="btnCancelar">Cancelar</button>
+    </div>
+  </div>
+</div>
+<script src="listagemcadastro.js"></script>
 </body>
 </html>
