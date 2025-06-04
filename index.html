@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
   <header class="navbar">
     <div class="container">
       <a href="index.html" class="logo-area">
@@ -20,81 +21,91 @@
       </nav>
 
       <div class="nav-actions">
-  <a href="login.html" id="btn-entrar">Entrar</a>
-  <a href="cadastro.html" class="btn" id="btn-cadastrar">Cadastre-se</a>
-  <a href="perfil.html" id="btn-perfil" style="display: none;">Perfil</a>
-  <a href="#" id="btn-sair" style="display: none;">Sair</a>
-</div>
+        <a href="login.html" id="btn-entrar">Entrar</a>
+        <a href="cadastro.html" class="btn" id="btn-cadastrar">Cadastre-se</a>
+        <a href="perfil.html" id="btn-perfil" style="display: none;">Perfil</a>
+        <a href="#" id="btn-sair" style="display: none;">Sair</a>
+        <a href="listagemcadastro.html" id="btn-listagemcadastro" style="display: none;">Usuários</a>
+      </div>
     </div>
   </header>
 
- <main>
-  <section class="intro-banner">
-    <h2>Descubra filmes, avalie e compartilhe com seus amigos!</h2>
-    <p>Explore os mais populares agora mesmo.</p>
-  </section>
+  <main>
 
-  <div id="movies-container" class="grid"></div>
+    <section class="intro-banner">
+      <h2>Descubra filmes, avalie e compartilhe com seus amigos!</h2>
+      <p>Explore os mais populares agora mesmo.</p>
+    </section>
 
-<section class="features-section">
-  <h2>O Concha permite que você...</h2>
-  <div class="features-grid">
-    <div class="feature-card">
-      <span class="icon">👁️</span>
-      <p>Mantenha um registro de todos os filmes que você já assistiu (ou comece a partir do dia em que se inscrever)</p>
-    </div>
-    <div class="feature-card">
-      <span class="icon">❤️</span>
-      <p>Demostre seu amor por seus filmes, listas e críticas favoritas com um “curtir”</p>
-    </div>
-    <div class="feature-card">
-      <span class="icon">📝</span>
-      <p>Escreva e compartilhe avaliações e siga amigos e outros membros para ler as deles</p>
-    </div>
-    <div class="feature-card">
-      <span class="icon">⭐</span>
-      <p>Avalie cada filme em uma escala de cinco estrelas (com metades) para registrar e compartilhar sua reação</p>
-    </div>
-    <div class="feature-card">
-      <span class="icon">📅</span>
-      <p>Mantenha um diário de suas exibições de filmes (e atualize para o <strong>Pro</strong> para obter estatísticas abrangentes)</p>
-    </div>
-    <div class="feature-card">
-      <span class="icon">📋</span>
-      <p>Compile e compartilhe listas de filmes sobre qualquer tópico e mantenha uma lista de filmes para assistir</p>
-    </div>
-  </div>
-</section>
+    <div id="movies-container" class="grid"></div>
 
-<section class="section-title" style="display: flex; justify-content: space-between; align-items: center;">
-  <h2>Acabei de Revisar...</h2>
-  <span class="watched-count">2.631.920.688 filmes assistidos</span>
-</section>
+    <section class="features-section">
+      <h2>O Concha permite que você...</h2>
 
-<div id="weekly-popular-container" class="scroll-row"></div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <span class="icon">👁️</span>
+          <p>Mantenha um registro de todos os filmes que você já assistiu (ou comece a partir do dia em que se inscrever)</p>
+        </div>
 
-<div class="review-message">
-  <h3>Escreva e compartilhe resenhas. Crie suas próprias listas. Compartilhe sua vida no cinema.</h3>
-  <p>
-    Abaixo estão algumas análises e listas populares desta semana.
-    <a href="#">Cadastre-se</a> para criar a sua.
-  </p>
-</div>
+        <div class="feature-card">
+          <span class="icon">❤️</span>
+          <p>Demostre seu amor por seus filmes, listas e críticas favoritas com um “curtir”</p>
+        </div>
 
- <section class="section-title" style="display: flex; justify-content: space-between; align-items: center;">
-  <h2>Avaliações Populares Desta Semana</h2>
-  <a href="#" class="see-more">MAIS</a>
-</section>
+        <div class="feature-card">
+          <span class="icon">📝</span>
+          <p>Escreva e compartilhe avaliações e siga amigos e outros membros para ler as deles</p>
+        </div>
 
-<div id="top-rated-container" class="popular-reviews"></div>
+        <div class="feature-card">
+          <span class="icon">⭐</span>
+          <p>Avalie cada filme em uma escala de cinco estrelas (com metades) para registrar e compartilhar sua reação</p>
+        </div>
 
-</main>
+        <div class="feature-card">
+          <span class="icon">📅</span>
+          <p>Mantenha um diário de suas exibições de filmes (e atualize para o <strong>Pro</strong> para obter estatísticas abrangentes)</p>
+        </div>
+
+        <div class="feature-card">
+          <span class="icon">📋</span>
+          <p>Compile e compartilhe listas de filmes sobre qualquer tópico e mantenha uma lista de filmes para assistir</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-title" style="display: flex; justify-content: space-between; align-items: center;">
+      <h2>Acabei de Revisar...</h2>
+      <span class="watched-count">2.631.920.688 filmes assistidos</span>
+    </section>
+
+    <div id="weekly-popular-container" class="scroll-row"></div>
+
+    <section class="review-message">
+      <h3>Escreva e compartilhe resenhas. Crie suas próprias listas. Compartilhe sua vida no cinema.</h3>
+      <p>
+        Abaixo estão algumas análises e listas populares desta semana.
+        <a href="#">Cadastre-se</a> para criar a sua.
+      </p>
+    </section>
+
+    <section class="section-title" style="display: flex; justify-content: space-between; align-items: center;">
+      <h2>Avaliações Populares Desta Semana</h2>
+      <a href="#" class="see-more">MAIS</a>
+    </section>
+
+    <div id="top-rated-container" class="popular-reviews"></div>
+
+  </main>
 
   <footer>
-  <p>&copy; Concha. Feito por estudantes em Recife, Pernambuco. Dados de filmes fornecidos por <a href="https://www.themoviedb.org/" target="_blank" rel="noopener noreferrer">TMDB</a></p>
-</footer>
+    <p>&copy; Concha. Feito por estudantes em Recife, Pernambuco. Dados de filmes fornecidos por 
+      <a href="https://www.themoviedb.org/" target="_blank" rel="noopener noreferrer">TMDB</a>
+    </p>
+  </footer>
 
-<button id="toggle-theme" title="Alternar tema">🌙</button>
+  <button id="toggle-theme" title="Alternar tema">🌙</button>
 
   <script src="script.js"></script>
 </body>

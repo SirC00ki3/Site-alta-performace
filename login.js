@@ -52,7 +52,17 @@ document.addEventListener('DOMContentLoaded', () => {
   localStorage.setItem('isLoggedIn', 'true');
   localStorage.setItem('sessionUser', JSON.stringify({ name: usuarioEncontrado.nome, email: usuarioEncontrado.email }));
   window.location.href = 'perfil.html';
-} else {
+} else if (email === 'admin@gmail.com' && password === '1234567a@') {
+      const adminUser = {
+        name: 'Administrador',
+        email: email,
+        isAdmin: true
+      };
+      localStorage.setItem('sessionUser', JSON.stringify(adminUser));
+      localStorage.setItem('isLoggedIn', 'true');
+      window.location.href = 'index.html';
+      return;
+    } else {
       errorMessage.textContent = 'E-mail ou senha incorretos.';
     }
   });

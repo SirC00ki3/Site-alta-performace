@@ -4,51 +4,91 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Concha - Usuários</title>
+  
   <link rel="stylesheet" href="listagemcadastro.css" />
 </head>
+
 <body>
 
-   <header class="navbar">
+  <!-- Botão de alternar tema -->
+  <button id="toggle-theme" title="Alternar tema" aria-label="Alternar tema">🌙</button>
+
+  <!-- Header -->
+  <header class="navbar">
     <div class="container">
+      
       <a href="index.html" class="logo-area">
         <img src="images/logo-concha.png" alt="Logo Concha" class="logo" />
       </a>
 
-      <nav class="nav-links">
+      <nav class="nav-links" aria-label="Navegação principal">
         <a href="filmes.html">Filmes</a>
         <a href="membros.html">Membros</a>
         <a href="listas.html">Listas</a>
       </nav>
 
       <div class="nav-actions">
-  <a href="login.html" id="btn-entrar">Entrar</a>
-  <a href="cadastro.html" class="btn" id="btn-cadastrar">Cadastre-se</a>
-  <a href="perfil.html" id="btn-perfil" style="display: none;">Perfil</a>
-  <a href="#" id="btn-sair" style="display: none;">Sair</a>
-</div>
+        <a href="login.html" id="btn-entrar">Entrar</a>
+        <a href="cadastro.html" class="btn" id="btn-cadastrar">Cadastre-se</a>
+        <a href="perfil.html" id="btn-perfil" style="display: none;">Perfil</a>
+        <a href="#" id="btn-sair" style="display: none;">Sair</a>
+      </div>
+      
     </div>
   </header>
 
   <!-- Conteúdo principal -->
-  <main class="container">
-    <h2>Usuários Cadastrados</h2>
+  <main>
+    <section class="section-title">
+      <h2>Usuários Cadastrados</h2>
+    </section>
 
-    <input type="text" id="searchInput" placeholder="Buscar por nome ou e-mail..." />
+    <section class="intro-banner">
+      <input 
+        type="text" 
+        id="searchInput" 
+        placeholder="Buscar por nome ou e-mail..." 
+        aria-label="Buscar usuários" 
+      />
+    </section>
 
-    <table>
-      <thead>
-  <tr>
-    <th>Nome</th>
-    <th>E-mail</th>
-    <th>Ações</th>
-  </tr>
-</thead>
-      <tbody id="usuariosBody">
-        <!-- Conteúdo gerado via JavaScript -->
-      </tbody>
-    </table>
+    <section class="features-section">
+      <table aria-label="Tabela de usuários cadastrados">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="usuariosBody">
+          <!-- Conteúdo gerado via JavaScript -->
+        </tbody>
+      </table>
+    </section>
   </main>
 
+  <!-- Modal de confirmação -->
+  <div id="modalConfirmacao" class="modal-overlay hidden" role="dialog" aria-modal="true">
+    <div class="modal">
+      <p>Tem certeza que deseja excluir este usuário?</p>
+      <div class="botoes-modal">
+        <button id="btnConfirmar">Confirmar</button>
+        <button id="btnCancelar">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>
+      &copy; Concha. Feito por estudantes em Recife, Pernambuco. Dados de filmes fornecidos por 
+      <a href="https://www.themoviedb.org/" target="_blank" rel="noopener noreferrer">TMDB</a>.
+    </p>
+  </footer>
+
+  <!-- Scripts -->
   <script src="listagemcadastro.js"></script>
+
 </body>
 </html>

@@ -48,6 +48,10 @@ toggleBtn.addEventListener('click', () => {
     if (btnCadastrar) btnCadastrar.style.display = 'none';
     if (btnPerfil) btnPerfil.style.display = 'inline-block';
     if (btnSair) btnSair.style.display = 'inline-block';
+    if (sessionUser.isAdmin) {
+      const btnListagem = document.getElementById('btn-listagemcadastro');
+      if (btnListagem) btnListagem.style.display = 'inline-block';
+    }
   } else {
     localStorage.removeItem('isLoggedIn');
     localStorage.removeItem('sessionUser');
