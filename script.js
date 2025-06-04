@@ -1,12 +1,13 @@
 const API_KEY = '574ae54f6fd66e60543359675d336fe5';
 const IMG_BASE_URL = 'https://image.tmdb.org/t/p/w500';
 
-// Função para aplicar o tema salvo
-function aplicarTemaSalvo() {
-  const savedTheme = localStorage.getItem('theme');
-  const body = document.body;
-  const toggleBtn = document.getElementById('toggle-theme');
+const moviesContainer = document.getElementById('movies-container');
+const toggleBtn = document.getElementById('toggle-theme');
+const body = document.body;
 
+// Aplicar tema salvo
+const aplicarTemaSalvo = () => {
+  const savedTheme = localStorage.getItem('theme');
   if (savedTheme === 'dark') {
     body.classList.add('dark-theme');
     toggleBtn.textContent = '🌙';
@@ -14,22 +15,18 @@ function aplicarTemaSalvo() {
     body.classList.remove('dark-theme');
     toggleBtn.textContent = '☀️';
   }
-}
+};
 
-// Função para alternar o tema
-function configurarAlternanciaTema() {
-  const toggleBtn = document.getElementById('toggle-theme');
-  const body = document.body;
+aplicarTemaSalvo();
 
-  toggleBtn.addEventListener('click', () => {
-    const isDark = body.classList.toggle('dark-theme');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    toggleBtn.textContent = isDark ? '🌙' : '☀️';
-  });
-}
+// Alternar tema ao clicar no botão
+toggleBtn.addEventListener('click', () => {
+  const isDark = body.classList.toggle('dark-theme');
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  toggleBtn.textContent = isDark ? '🌙' : '☀️';
+});
 
-// Função para configurar os botões de login
-function configurarBotoesLogin() {
+ // --- LOGIN / BOTÕES DE NAVEGAÇÃO ---
   const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
   let sessionUser;
 
@@ -68,9 +65,9 @@ function configurarBotoesLogin() {
       window.location.href = 'index.html';
     });
   }
-}
+;
 
-// Dados de avaliações personalizadas
+// Reviews personalizadas apenas para 'top-rated-container'
 const customReviews = [
   {
     title: 'Thunderbolts*',
@@ -121,21 +118,19 @@ const customReviews = [
     title: 'Thunderbolts*',
     year: 2025,
     username: 'Iman Vellani',
-    text: 'Cinco desajustados emocionalmente constipados são forçados a criar laços traumáticos sob o olhar atento de uma figura de autoridade moralmente falida e ah, hum, então este é o clube do café da manhã com uniforme tático. Eu vivo.',
+    text: 'Cinco desajustados emocionalmente constipados são forçados a criar laços traumáticos sob o olhar atento de uma figura de autoridade moralmente falida e... ah, hum, então este é o clube do café da manhã com uniforme tático. Eu vivo.',
     likes: 6500,
     vote: 4.2,
     poster: 'images/thunderbolts_poster.jpg'
   }
 ];
 
-// Função para buscar e exibir filmes
+// Função principal
 function fetchMovies(endpoint, containerId) {
   const container = document.getElementById(containerId);
-  if (!container) return;
-
   container.innerHTML = '';
 
-  // Se for o container de reviews personalizados
+  // Se for a seção de Avaliações Populares (top-rated), use os dados mockados
   if (containerId === 'top-rated-container') {
     customReviews.forEach(review => {
       const card = document.createElement('div');
@@ -158,16 +153,11 @@ function fetchMovies(endpoint, containerId) {
     });
     return;
   }
-
-  // Para os demais containers, busca na API
+  
+  // Para outras seções, use a API normalmente
   fetch(`https://api.themoviedb.org/3${endpoint}?api_key=${API_KEY}&language=pt-BR&page=1`)
-    .then(response => response.json())
+    .then(res => res.json())
     .then(data => {
-      if (!data.results || data.results.length === 0) {
-        container.innerHTML = '<p>Nenhum filme encontrado.</p>';
-        return;
-      }
-
       data.results.forEach(movie => {
         const card = document.createElement('div');
         card.className = 'movie-card';
@@ -180,7 +170,7 @@ function fetchMovies(endpoint, containerId) {
           <img src="${posterURL}" alt="${movie.title}" />
           <div class="movie-info">
             <h3>${movie.title}</h3>
-            <p>⭐ ${movie.vote_average.toFixed(1)}</p>
+            <p>⭐ ${movie.vote_average}</p>
           </div>
         `;
         container.appendChild(card);
@@ -188,21 +178,10 @@ function fetchMovies(endpoint, containerId) {
     })
     .catch(error => {
       console.error(`Erro ao carregar ${containerId}:`, error);
-      container.innerHTML = '<p>Erro ao carregar filmes. Tente novamente mais tarde.</p>';
     });
 }
 
-// Função principal para inicializar o aplicativo
-function inicializarAplicativo() {
-  aplicarTemaSalvo();
-  configurarAlternanciaTema();
-  configurarBotoesLogin();
-
-  // Chamadas das seções
-  fetchMovies('/movie/popular', 'movies-container'); // Filmes Populares
-  fetchMovies('/trending/movie/week', 'weekly-popular-container'); // Populares da Semana
-  fetchMovies('/movie/top_rated', 'top-rated-container'); // Avaliações Populares (mock)
-}
-
-// Inicializar o aplicativo quando o DOM estiver carregado
-document.addEventListener('DOMContentLoaded', inicializarAplicativo);
+// Chamadas das seções
+fetchMovies('/movie/popular', 'movies-container'); // Filmes Populares
+fetchMovies('/trending/movie/week', 'weekly-popular-container'); // Populares da Semana
+fetchMovies('/movie/top_rated', 'top-rated-container'); // Avaliações Populares (mock)

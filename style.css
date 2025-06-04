@@ -51,7 +51,7 @@ body {
     color: #a78bfa;
   }
   
-  /* Ações do lado direito */
+  /* Ações do lado direito (idioma, login etc) */
   .nav-actions {
     display: flex;
     align-items: center;
@@ -71,7 +71,7 @@ body {
   .lang-btn {
     background: transparent;
     border: 1px solid #fff;
-    color: purple;
+    color: white;
     padding: 4px 8px;
     cursor: pointer;
     border-radius: 4px;
@@ -112,11 +112,6 @@ body {
   .section-title h2 {
     font-size: 1.5rem;
     color: #a78bfa;
-    margin-bottom: 1rem;
-  }
-   .section-title h3 {
-    font-size: 0.8rem;
-    color: purple;
     margin-bottom: 1rem;
   }
   
@@ -215,7 +210,7 @@ body {
     background-color: #7c3aed;
     border: none;
     border-radius: 5px;
-    color: purple;
+    color: white;
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.2s;
@@ -312,7 +307,7 @@ body {
 .section-title {
   margin: 2rem 0 1rem 0;
   padding: 0 1rem;
-  color: purple;
+  color: white;
 }
 
 .section-title .watched-count {
@@ -349,7 +344,7 @@ body {
   font-size: 1.5rem;
   font-weight: 400;
   margin-bottom: 1rem;
-  color: purple;
+  color: white;
 }
 
 .review-message p {
@@ -370,7 +365,7 @@ body {
 .section-title {
   margin: 2rem 0 1rem 0;
   padding: 0 1rem;
-  color: purple;
+  color: white;
   font-size: 1rem;
 }
 
@@ -420,7 +415,7 @@ body {
   flex-wrap: wrap;
   gap: 0.5rem;
   font-weight: bold;
-  color: purple;
+  color: white;
 }
 
 .review-header .year {
@@ -476,7 +471,6 @@ body {
   z-index: 1000;
   transition: background-color 0.3s, color 0.3s;
 }
-
 
 /* Tema escuro */
 body.dark-theme #toggle-theme {

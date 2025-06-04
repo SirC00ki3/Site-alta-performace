@@ -1,122 +1,54 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lista de Filmes</title>
-  <link rel="stylesheet" href="style.css" />
-<link rel="stylesheet" href="dark-theme.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Listas - Concha</title>
+  <link rel="stylesheet" href="listas.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <div class="container">
-    <a href="index.html" class="logo-area" aria-label="Página inicial">
-      <img src="images/logo-concha.png" alt="Logo da Concha" class="logo" />
+
+<header class="navbar">
+  <div class="container">
+    <a href="index.html" class="logo-area">
+      <img src="images/logo-concha.png" alt="Logo Concha" class="logo" />
     </a>
-      <nav class="nav-links">
-        <a href="index.html">Início</a>
-        <a href="lista.html">Filmes</a>
-        <a href="login.html">Entrar</a>
-        <button id="toggle-theme">Alternar Tema</button>
-      </nav>
+
+    <nav class="nav-links">
+      <a href="filmes.html">Filmes</a>
+      <a href="membros.html">Membros</a>
+      <a href="listas.html">Listas</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="login.html" id="btn-entrar">Entrar</a>
+      <a href="cadastro.html" class="btn" id="btn-cadastrar">Cadastre-se</a>
+      <a href="perfil.html" id="btn-perfil" style="display: none;">Perfil</a>
+      <a href="#" id="btn-sair" style="display: none;">Sair</a>
     </div>
+  </div>
+</header>
+
+<main>
+  <header>
+    <h1>Listas criadas pelos usuários</h1>
+    <p>Descubra listas feitas pela comunidade do Concha.</p>
   </header>
 
-  <main>
-    <section class="intro-banner">
-      <h2>Filmes em Destaque</h2>
-      <p>Explore nossa lista com os melhores títulos disponíveis.</p>
-    </section>
+  <section class="user-lists" id="user-lists">
+    <!-- Listas inseridas via JS -->
+  </section>
+</main>
 
-    <section class="section-title">
-      <h2>Todos os Filmes</h2>
-    </section>
+<footer>
+  <p>&copy; Concha. Feito por estudantes em Recife, Pernambuco. Dados de filmes fornecidos por 
+    <a href="https://www.themoviedb.org/" target="_blank" rel="noopener noreferrer">TMDB</a>
+  </p>
+</footer>
 
-    <section class="grid">
-      <div class="movie-card">
-        <img src="images/filme1.jpg" alt="Filme 1" />
-        <div class="movie-info">
-          <h3>Filmes de Ação</h3>
-          <p>2025</p>
-        </div>
-      </div>
+<button id="toggle-theme" title="Alternar tema">🌙</button>
 
-      <div class="movie-card">
-        <img src="images/filme2.jpg" alt="Filme 2" />
-        <div class="movie-info">
-          <h3>Filmes de Drama</h3>
-          <p>2025</p>
-        </div>
-      </div>
-
-      <div class="movie-card">
-        <img src="images/filme3.jpg" alt="Filme 3" />
-        <div class="movie-info">
-          <h3>Filmes de Comédia</h3>
-          <p>2025</p>
-        </div>
-      </div>
-
-      <div class="movie-card">
-        <img src="images/filme4.jpg" alt="Filme 4" />
-        <div class="movie-info">
-          <h3>Filmes de Terror</h3>
-          <p>2025</p>
-        </div>
-      </div>
-
-      <section class="grid">
-      <div class="movie-card">
-        <img src="images/filme1.jpg" alt="Filme 5" />
-        <div class="movie-info">
-          <h3>Filmes de Romance</h3>
-          <p>2025</p>
-        </div>
-      </div>
-
-      <section class="grid">
-      <div class="movie-card">
-        <img src="images/filme1.jpg" alt="Filme 6" />
-        <div class="movie-info">
-          <h3>Filmes de Terror</h3>
-          <p>2025</p>
-        </div>
-      </div>
-
-     <section class="grid">
-      <div class="movie-card">
-        <img src="images/filme1.jpg" alt="Filme 7" />
-        <div class="movie-info">
-          <h3>Filmes Infantis</h3>
-          <p>2025</p>
-        </div> 
-      </div>
-
-      <!-- Adicione mais filmes conforme desejar -->
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 Concha. Todos os direitos reservados.</p>
-  </footer>
-  <script>
-  const toggleBtn = document.getElementById('toggle-theme');
-  const body = document.body;
-
-  // Aplica o tema salvo no carregamento
-  if (localStorage.getItem('theme') === 'dark') {
-    body.classList.add('dark-theme');
-  }
-
-  toggleBtn.addEventListener('click', () => {
-    body.classList.toggle('dark-theme');
-    
-    if (body.classList.contains('dark-theme')) {
-      localStorage.setItem('theme', 'dark');
-    } else {
-      localStorage.setItem('theme', 'light');
-    }
-  });
-</script>
+<script src="listas.js"></script>
 </body>
 </html>

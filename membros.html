@@ -1,41 +1,60 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lista de Filmes</title>
-  <link rel="stylesheet" href="style.css" />
-<link rel="stylesheet" href="dark-theme.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Membros - Concha</title>
+  <link rel="stylesheet" href="membros.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
+
+  <header class="navbar">
     <div class="container">
-         <button id="toggle-theme">Alternar Tema</button>
-    <a href="index.html" class="logo-area" aria-label="Página inicial">
-      <img src="images/logo-concha.png" alt="Logo da Concha" class="logo" />
-    </a>
+      <a href="index.html" class="logo-area">
+        <img src="images/logo-concha.png" alt="Logo Concha" class="logo" />
+      </a>
+
       <nav class="nav-links">
-        <footer>
-    <p>&copy; 2025 Concha. Todos os direitos reservados.</p>
-  </footer>
+        <a href="filmes.html">Filmes</a>
+        <a href="membros.html">Membros</a>
+        <a href="listas.html">Listas</a>
+      </nav>
 
-  <script src="filmes.js"></script>
-  <script>
-  const toggleBtn = document.getElementById('toggle-theme');
-  const body = document.body;
+      <div class="nav-actions">
+        <a href="login.html" id="btn-entrar">Entrar</a>
+        <a href="cadastro.html" class="btn" id="btn-cadastrar">Cadastre-se</a>
+        <a href="perfil.html" id="btn-perfil" style="display: none;">Perfil</a>
+        <a href="#" id="btn-sair" style="display: none;">Sair</a>
+      </div>
+    </div>
+  </header>
 
-  // Aplica o tema salvo no carregamento
-  if (localStorage.getItem('theme') === 'dark') {
-    body.classList.add('dark-theme');
-  }
+  <main>
+    <header>
+      <h1>Usuários mais famosos do Concha</h1>
+      <p>Confira os membros mais influentes da nossa comunidade.</p>
+    </header>
 
-  toggleBtn.addEventListener('click', () => {
-    body.classList.toggle('dark-theme');
-    
-    if (body.classList.contains('dark-theme')) {
-      localStorage.setItem('theme', 'dark');
-    } else {
-      localStorage.setItem('theme', 'light');
-    }
-  });
-</script>
+    <section class="famous-users">
+      <ol>
+        <li><strong>Zoe Rose Bryant</strong> — 50 mil seguidores</li>
+        <li><strong>Preet</strong> — 48 mil seguidores</li>
+        <li><strong>James (Schaffrillas)</strong> — 45 mil seguidores</li>
+        <li><strong>.｡*❀ máx ❀*｡.</strong> — 40 mil seguidores</li>
+        <li><strong>ConnorEatsPants</strong> — 38 mil seguidores</li>
+        <li><strong>Iman Vellani</strong> — 36 mil seguidores</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer>
+  <p>&copy; Concha. Feito por estudantes em Recife, Pernambuco. Dados de filmes fornecidos por <a href="https://www.themoviedb.org/" target="_blank" rel="noopener noreferrer">TMDB</a></p>
+</footer>
+
+<button id="toggle-theme" title="Alternar tema">🌙</button>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
