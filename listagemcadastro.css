@@ -1,4 +1,3 @@
-/* Reset básico */
 * {
   margin: 0;
   padding: 0;
@@ -10,55 +9,66 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #0d0d0d;
   color: #ffffff;
-  line-height: 3.6;
+  line-height: 1.6;
 }
 
 /* Cabeçalho */
 header.navbar {
   background-color: #1a1a1a;
   border-bottom: 2px solid #7c3aed;
+  padding: 1rem 0;
 }
 
-/* Container do cabeçalho com logo e menu centralizado */
-.container-header {
-  position: relative;
+/* Container do cabeçalho */
+.container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
-  justify-content: center;
-}
-
-/* Logo fixada à esquerda */
-.logo-area {
-  position: absolute;
-  left: 1rem;
-  top: 65%;
-  transform: translateY(-50%);
-}
-
-.logo {
-  height: 100px;
-}
-
-/* Menu centralizado */
-.nav-links-center {
-  display: flex;
-  gap: 30px;
-  justify-content: center;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 
-.nav-links-center a {
+/* Logo */
+.logo-area .logo {
+  height: 100px;
+}
+
+/* Links de navegação */
+.nav-links {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nav-links a {
   text-decoration: none;
   color: #d1d5db;
   font-weight: bold;
   transition: color 0.2s;
 }
 
-.nav-links-center a:hover {
+.nav-links a:hover {
   color: #a78bfa;
+}
+
+/* Ações (Perfil e Sair) */
+.nav-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-actions a {
+  text-decoration: none;
+  color: #a78bfa;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+.nav-actions a:hover {
+  color: #d8b4fe;
 }
 
 /* Conteúdo principal */
@@ -75,7 +85,9 @@ main h2 {
   font-size: 1.8rem;
   color: #a78bfa;
   margin-bottom: 1.5rem;
-  align-self: flex-start;
+}
+body.light-mode main h2 {
+  color: #4f46e5;
 }
 
 /* Campo de busca */
@@ -89,9 +101,17 @@ main h2 {
   color: white;
   margin-bottom: 2rem;
 }
+body.light-mode #searchInput {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  color: #222;
+}
 
 #searchInput::placeholder {
   color: #aaa;
+}
+body.light-mode #searchInput::placeholder {
+  color: #666;
 }
 
 /* Tabela de usuários */
@@ -101,10 +121,15 @@ table {
   background-color: #1a1a1a;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+body.light-mode table {
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(100, 100, 100, 0.1);
 }
 
-table th, table td {
+table th,
+table td {
   padding: 1rem;
   text-align: left;
 }
@@ -115,42 +140,23 @@ table th {
   font-weight: 600;
   border-bottom: 1px solid #3a3a3a;
 }
+body.light-mode table th {
+  background-color: #e5e5ff;
+  color: #4f46e5;
+  border-bottom: 1px solid #ccc;
+}
 
 table td {
   border-bottom: 1px solid #2f2f2f;
   color: #e5e5e5;
 }
+body.light-mode table td {
+  border-bottom: 1px solid #ddd;
+  color: #333;
+}
 
 table tr:last-child td {
   border-bottom: none;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-  .container-header {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .logo-area {
-    position: static;
-    transform: none;
-    margin-bottom: 0.5rem;
-  }
-
-  .nav-links-center {
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-
-  main.container {
-    padding: 1rem;
-  }
-}
-main.container h2 {
-  text-align: center;
-  align-self: center; /* centraliza no eixo principal do flex */
 }
 
 /* Botões de ação */
@@ -167,19 +173,99 @@ main.container h2 {
 }
 
 .editar-btn {
-  background-color: #3b82f6; /* azul */
+  background-color: #3b82f6;
   color: white;
 }
-
 .editar-btn:hover {
   background-color: #2563eb;
 }
 
 .excluir-btn {
-  background-color: #ef4444; /* vermelho */
+  background-color: #ef4444;
+  color: white;
+}
+.excluir-btn:hover {
+  background-color: #dc2626;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .nav-links,
+  .nav-actions {
+    justify-content: center;
+  }
+
+  main.container {
+    padding: 1rem;
+  }
+
+  main h2 {
+    text-align: center;
+  }
+}
+
+/* Modal de confirmação */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal {
+  background-color: #1a1a1a;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+body.light-mode .modal {
+  background-color: #fff;
+  color: #222;
+}
+
+.botoes-modal {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.botoes-modal button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#btnConfirmar {
+  background-color: #ef4444;
   color: white;
 }
 
-.excluir-btn:hover {
-  background-color: #dc2626;
+#btnCancelar {
+  background-color: #374151;
+  color: white;
+}
+body.light-mode #btnCancelar {
+  background-color: #ddd;
+  color: #333;
+}
+
+.hidden {
+  display: none;
 }
