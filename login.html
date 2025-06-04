@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- 
   <title>Login - Concha</title>
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -22,31 +21,10 @@
 
     </form>
   </main>
-<<<<<<< HEAD
- <button id="toggle-theme">Alternar Tema</button>
-=======
 
   <button id="toggle-theme" title="Alternar Tema">🌙</button>
->>>>>>> d73164bdca711142c4958c9164de69898f20b316
   <button id="botao-voltar" onclick="window.location.href='index.html'">⬅ Voltar para Início</button>
-<script>
-  const toggleBtn = document.getElementById('toggle-theme');
-  const body = document.body;
 
-  // Aplica o tema salvo no carregamento
-  if (localStorage.getItem('theme') === 'dark') {
-    body.classList.add('dark-theme');
-  }
-
-  toggleBtn.addEventListener('click', () => {
-    body.classList.toggle('dark-theme');
-    
-    if (body.classList.contains('dark-theme')) {
-      localStorage.setItem('theme', 'dark');
-    } else {
-      localStorage.setItem('theme', 'light');
-    }
-  });
-</script>
+  <script src="login.js"></script>
 </body>
 </html>

@@ -86,7 +86,7 @@ main h2 {
   border-radius: 6px;
   border: 1px solid #3a3a3a;
   background-color: #2a2a2a;
-  color: gray;
+  color: white;
   margin-bottom: 2rem;
 }
 
@@ -168,7 +168,7 @@ main.container h2 {
 
 .editar-btn {
   background-color: #3b82f6; /* azul */
-  color: gray;
+  color: white;
 }
 
 .editar-btn:hover {
@@ -177,7 +177,7 @@ main.container h2 {
 
 .excluir-btn {
   background-color: #ef4444; /* vermelho */
-  color: gray;
+  color: white;
 }
 
 .excluir-btn:hover {
