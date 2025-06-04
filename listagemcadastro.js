@@ -4,6 +4,7 @@ const searchInput = document.getElementById("searchInput");
 // Pega os usuários do localStorage
 let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
+
 // Função para renderizar a tabela
 function renderTable(lista) {
   tbody.innerHTML = "";
@@ -50,18 +51,40 @@ function excluirUsuario(index) {
   }
 }
 
-// Botão Editar (simples por enquanto)
+// Botão Editar com redirecionamento
 function editarUsuario(index) {
-  const novoNome = prompt("Digite o novo nome:", usuarios[index].nome);
-  const novoEmail = prompt("Digite o novo e-mail:", usuarios[index].email);
+  const usuario = usuarios[index];
 
-  if (novoNome && novoEmail) {
-    usuarios[index].nome = novoNome.trim();
-    usuarios[index].email = novoEmail.trim();
-    localStorage.setItem("usuarios", JSON.stringify(usuarios));
-    renderTable(usuarios);
-  }
+  // Salva o usuário e o índice temporariamente no localStorage
+  localStorage.setItem("usuarioEditando", JSON.stringify({ ...usuario, index }));
+
+  // Redireciona para a tela de edição
+  window.location.href = "edit_listagem.html";
 }
 
 // Renderiza a tabela inicialmente
 renderTable(usuarios);
+
+let indexParaExcluir = null;
+
+function excluirUsuario(index) {
+  indexParaExcluir = index;
+  document.getElementById("modalConfirmacao").classList.remove("hidden");
+}
+
+document.getElementById("btnConfirmar").addEventListener("click", () => {
+  if (indexParaExcluir !== null) {
+    usuarios.splice(indexParaExcluir, 1);
+    localStorage.setItem("usuarios", JSON.stringify(usuarios));
+    renderTable(usuarios);
+    indexParaExcluir = null;
+  }
+  document.getElementById("modalConfirmacao").classList.add("hidden");
+});
+
+document.getElementById("btnCancelar").addEventListener("click", () => {
+  indexParaExcluir = null;
+  document.getElementById("modalConfirmacao").classList.add("hidden");
+});
+const body = document.body;
+const toggleBtn = document.getElementById('toggle-theme-btn');
