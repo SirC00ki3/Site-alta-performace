@@ -3,6 +3,40 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro - Concha</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <main class="singup-container">
+        <h1>Cadastro</h1>
+        <form id="singup-form">
+
+            <label for="Nome">Nome:</label>
+            <input type="text" id="Nome" required placeholder="Seu nome completo" />
+
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" required placeholder="seu@email.com" />
+
+            <label for="password">Senha:</label>
+            <input type="password" id="password" required placeholder="********" />
+
+            <button type="submit">Cadastrar</button>
+            <p id="error-message" class="error"></p>
+        </form>
+    </main>
+    
+    <button id="toggle-theme" title="Alternar Tema">🌙</button>
+    <button id="botao-voltar" onclick="window.location.href='index.html'">⬅ Voltar para Início</button>
+
+    <script src="cadastro.js"></script>
+
+</body>
+=======
+<!DOCTYPE html>
+<html long="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Cadastro - Concha</title>
     <link rel="stylesheet" href="style.css" />
@@ -28,24 +62,6 @@
     <button id="toggle-theme">Alternar Tema</button>
     <button id="botao-voltar" onclick="window.location.href='index.html'">⬅ Voltar para Início</button>
 
-    <script>
-  const toggleBtn = document.getElementById('toggle-theme');
-  const body = document.body;
-
-  // Aplica o tema salvo no carregamento
-  if (localStorage.getItem('theme') === 'dark') {
-    body.classList.add('dark-theme');
-  }
-
-  toggleBtn.addEventListener('click', () => {
-    body.classList.toggle('dark-theme');
-    
-    if (body.classList.contains('dark-theme')) {
-      localStorage.setItem('theme', 'dark');
-    } else {
-      localStorage.setItem('theme', 'light');
-    }
-  });
-</script>
+    <script src="cadastro.js"></script>
 </body>
 </html>

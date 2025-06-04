@@ -15,30 +15,28 @@
       <img src="images/logo-concha.png" alt="Logo da Concha" class="logo" />
     </a>
 
-    <nav class="nav-links" aria-label="Navegação principal">
-      <a href="filmes.html">Filmes</a>
-      <a href="listas.html">Listas</a>
-      <a href="membros.html">Membros</a>
-      <a href="diario.html">Diário</a>
-       <button id="toggle-theme">Alternar Tema</button>
-    </nav>
+      <nav class="nav-links">
+        <a href="#">Filmes</a>
+        <a href="#">Séries</a>
+        <a href="#">Listas</a>
+        <a href="#">Membros</a>
+        <a href="#">Diário</a>
+      </nav>
 
-    <div class="nav-actions" role="navigation" aria-label="Ações do usuário">
-      
-      <button class="lang-btn" aria-label="Trocar idioma">PT</button>
-      <a href="login.html">Entrar</a>
-      <a href="cadastro.html" class="btn">Cadastre-se</a>
-      <a href="#" aria-label="Pesquisar">
-        <img src="images/search-icon.png" alt="Ícone de pesquisa" class="icon" />
-      </a>
+      <div class="nav-actions">
+        <button class="lang-btn">PT</button>
+        <a href="login.html">Entrar</a>
+        <a href="cadastro.html" class="btn">Cadastre-se</a>
+        <a href="#"><img src="images/search-icon.png" alt="Pesquisar" class="icon" /></a>
+      </div>
     </div>
-  </div>
-</header>
-  <main role="main">
-    <section class="intro-banner" aria-labelledby="intro-title">
-      <h2 id="intro-title">Descubra filmes, avalie e compartilhe com seus amigos!</h2>
-      <p> <h3>Explore os mais populares agora mesmo</h3></p>
-    </section>
+  </header>
+
+ <main>
+  <section class="intro-banner">
+    <h2>Descubra filmes, avalie e compartilhe com seus amigos!</h2>
+    <p>Explore os mais populares agora mesmo.</p>
+  </section>
 
     <section class="section-title" aria-label="Filmes Populares">
       <h2>Filmes Populares</h2>
@@ -95,13 +93,16 @@
     </section>
     <div id="top-rated-container" class="popular-reviews" role="list"></div>
 
-    <section class="section-title" aria-label="Recém Lançados">
-      <h2>Recém Lançados</h2>
-    </section>
-    <div id="recent-releases-container" class="scroll-row" role="list"></div>
-  </main>
+<div id="top-rated-container" class="popular-reviews"></div>
 
-  <footer role="contentinfo">
+
+  <section class="section-title">
+    <h2>Recém Lançados</h2>
+  </section>
+  <div id="recent-releases-container" class="grid"></div>
+</main>
+
+  <footer>
     <p>&copy; 2025 Concha. Todos os direitos reservados.</p>
   </footer>
 

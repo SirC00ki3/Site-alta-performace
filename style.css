@@ -492,7 +492,20 @@ body {
   font-size: 0.8rem;
   color: #aaa;
 }
+#toggle-theme {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px;
+  font-size: 18px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1000;
+  transition: background-color 0.3s, color 0.3s;
+}
 
+<<<<<<< HEAD
 /* ========== RESPONSIVIDADE ========== */
 
 @media (max-width: 1024px) {
@@ -583,3 +596,38 @@ body.dark-theme button {
   background-color: #fff;
   color: #000;
 }
+=======
+/* Tema escuro */
+body.dark-theme #toggle-theme {
+  background-color: #333;
+  color: white;
+  border: 1px solid #252525;
+}
+
+/* Tema claro */
+body:not(.dark-theme) #toggle-theme {
+  background-color: white;
+  color: #111;
+  border: 1px solid #ccc;
+}
+body:not(.dark-theme) {
+  background-color: #f2f2f2; /* tom suave, não branco puro */
+  color: #222;
+}
+body:not(.dark-theme) .login-container {
+  background-color: #ffffffcc; /* branco com transparência leve */
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+body:not(.dark-theme) #botao-voltar {
+  background-color: transparent;
+  color: #111;
+}
+body:not(.dark-theme) .singup-container {
+  background-color: #ffffffcc;
+  color: #222;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+#toggle-theme {
+  top: 30px;
+}
+>>>>>>> d73164bdca711142c4958c9164de69898f20b316
