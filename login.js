@@ -48,11 +48,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const usuarioEncontrado = usuariosSalvos.find(user => user.email === email && user.senha === password);
 
     if (usuarioEncontrado) {
-  localStorage.setItem('userEmail', usuarioEncontrado.email);
-  localStorage.setItem('isLoggedIn', 'true');
-  localStorage.setItem('sessionUser', JSON.stringify({ name: usuarioEncontrado.nome, email: usuarioEncontrado.email }));
-  window.location.href = 'perfil.html';
-} else {
+      const sessionUser = { email: usuarioEncontrado.email, name: usuarioEncontrado.nome };
+      localStorage.setItem('isLoggedIn', 'true');
+      localStorage.setItem('sessionUser', JSON.stringify(sessionUser));
+      window.location.href = 'perfil.html';
+    } else {
       errorMessage.textContent = 'E-mail ou senha incorretos.';
     }
   });

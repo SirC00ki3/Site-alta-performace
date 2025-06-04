@@ -40,6 +40,7 @@ toggleBtn.addEventListener('click', () => {
   const btnCadastrar = document.getElementById('btn-cadastrar');
   const btnPerfil = document.getElementById('btn-perfil');
   const btnSair = document.getElementById('btn-sair');
+  const btnAdmin = document.getElementById('btn-admin');
 
   const isSessaoValida = sessionUser && sessionUser.name && sessionUser.email;
 
@@ -64,6 +65,12 @@ toggleBtn.addEventListener('click', () => {
       localStorage.removeItem('sessionUser');
       window.location.href = 'index.html';
     });
+  }
+
+  if (isLoggedIn && isSessaoValida && sessionUser.email === 'admin@gmail.com') {
+    if (btnAdmin) btnAdmin.style.display = 'inline-block';
+  } else {
+    if (btnAdmin) btnAdmin.style.display = 'none';
   }
 ;
 
@@ -185,3 +192,20 @@ function fetchMovies(endpoint, containerId) {
 fetchMovies('/movie/popular', 'movies-container'); // Filmes Populares
 fetchMovies('/trending/movie/week', 'weekly-popular-container'); // Populares da Semana
 fetchMovies('/movie/top_rated', 'top-rated-container'); // Avaliações Populares (mock)
+
+function mostrarListaUsuarios() {
+  const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+  if (usuarios.length === 0) {
+    alert('Nenhum usuário cadastrado.');
+    return;
+  }
+  let lista = 'Lista de usuários cadastrados:\n\n';
+  usuarios.forEach(u => {
+    lista += `Nome: ${u.name} | Email: ${u.email}\n`;
+  });
+  alert(lista);
+}
+
+if (btnAdmin) {
+  btnAdmin.addEventListener('click', mostrarListaUsuarios);
+}
