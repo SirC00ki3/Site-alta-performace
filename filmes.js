@@ -20,6 +20,7 @@ function loadAllMovies() {
           <div class="movie-info">
             <h3>${movie.title}</h3>
             <p>⭐ ${movie.vote_average.toFixed(1)}</p>
+            <a href="https://www.themoviedb.org/movie/${movie.id}" target="_blank" class="btn-detalhes">Detalhes</a>
           </div>
         `;
         container.appendChild(card);

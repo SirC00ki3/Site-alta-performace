@@ -171,6 +171,7 @@ function fetchMovies(endpoint, containerId) {
           <div class="movie-info">
             <h3>${movie.title}</h3>
             <p>⭐ ${movie.vote_average}</p>
+            <a href="https://www.themoviedb.org/movie/${movie.id}" target="_blank" class="btn-detalhes">Detalhes</a>
           </div>
         `;
         container.appendChild(card);

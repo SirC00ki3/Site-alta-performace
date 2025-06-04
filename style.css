@@ -507,3 +507,22 @@ body:not(.dark-theme) .singup-container {
 #toggle-theme {
   top: 30px;
 }
+
+.btn-detalhes {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #7b2cbf; /* tom de roxo similar ao da imagem */
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+.btn-detalhes:hover {
+  background-color: #5a189a; /* tom mais escuro ao passar o mouse */
+}
