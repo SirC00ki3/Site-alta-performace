@@ -3,63 +3,78 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Filmes - Concha</title>
-  <link rel="stylesheet" href="style.css" />
-<link rel="stylesheet" href="dark-theme.css">
+  <title>Concha - Filmes Populares</title>
+  <link rel="stylesheet" href="filmes.css" />
+  <script src="filmes.js"></script>
 </head>
 <body>
- 
-  <header class="navbar">
+   <header class="navbar">
     <div class="container">
       <a href="index.html" class="logo-area">
         <img src="images/logo-concha.png" alt="Logo Concha" class="logo" />
       </a>
+
       <nav class="nav-links">
-        <a href="filmes.html" class="active">Filmes</a>
-        <a href="listas.html">Listas</a>
-        <a href="membros.html">Membros</a>
-        <a href="diario.html">Diário</a>
-      <button id="toggle-theme">Alternar Tema</button>
+        <a href="filmes.html">Filmes</a>
+        <a href="#">Membros</a>
+        <a href="#">Listas</a>
       </nav>
-    <div class="nav-actions">
-        <button class="lang-btn" aria-label="Trocar idioma">PT</button>
-        <a href="login.html">Entrar</a>
-        <a href="cadastro.html" class="btn">Cadastre-se</a>
-        <a href="#" aria-label="Pesquisar">
-          <img src="images/search-icon.png" alt="Ícone de pesquisa" class="icon" />
-        </a>
-      </div>
+
+       <div class="nav-actions">
+  <a href="login.html" id="btn-entrar">Entrar</a>
+  <a href="cadastro.html" class="btn" id="btn-cadastrar">Cadastre-se</a>
+  <a href="perfil.html" id="btn-perfil" style="display: none;">Perfil</a>
+  <a href="#" id="btn-sair" style="display: none;">Sair</a>
+</div>
     </div>
   </header>
-  <main>
-    <section class="section-title">
-      <h2>Explore Filmes</h2>
-    </section>
 
-    <div id="all-movies-container" class="scroll-row"></div>
+  <main class="container">
+    <h2>Filmes Populares Desta Semana</h2>
+    <div class="filmes">
+      <div class="filme">
+        <img src="images/mission.jpg" alt="Mission: Impossible">
+        <div class="info">
+          <strong>Mission: Impossible</strong>
+          <span>👁️ 376 mil | 💬 109 mil</span>
+          <span>❤️ 123 mil</span>
+        </div>
+      </div>
+
+      <div class="filme">
+        <img src="images/sinners.jpg" alt="Sinners">
+        <div class="info">
+          <strong>Sinners</strong>
+          <span>👁️ 1.5 milhões | 💬 226 mil</span>
+          <span>❤️ 672 mil</span>
+        </div>
+      </div>
+
+      <div class="filme">
+        <img src="images/lilo.jpg" alt="Lilo & Stitch">
+        <div class="info">
+          <strong>Lilo & Stitch</strong>
+          <span>👁️ 225 mil | 💬 36 mil</span>
+          <span>❤️ 58 mil</span>
+        </div>
+      </div>
+
+      <div class="filme">
+        <img src="images/final.jpg" alt="Final Destination">
+        <div class="info">
+          <strong>Final Destination</strong>
+          <span>👁️ 459 mil | 💬 82 mil</span>
+          <span>❤️ 148 mil</span>
+        </div>
+      </div>
+    </div>
   </main>
+<footer>
+  <p>&copy; Concha. Feito por estudantes em Recife, Pernambuco. Dados de filmes fornecidos por <a href="https://www.themoviedb.org/" target="_blank" rel="noopener noreferrer">TMDB</a></p>
+</footer>
 
-  <footer>
-    <p>&copy; 2025 Concha. Todos os direitos reservados.</p>
-  </footer>
+<button id="toggle-theme" title="Alternar tema">🌙</button>
 
   <script src="filmes.js"></script>
-  <script>
-  const toggleBtn = document.getElementById('toggle-theme');
-  const body = document.body;
-
-  // Aplica o tema salvo no carregamento
-  if (localStorage.getItem('theme') === 'dark') {
-    body.classList.add('dark-theme');
-  }
-
-  toggleBtn.addEventListener('click', () => {
-    body.classList.toggle('dark-theme');
-    
-    if (body.classList.contains('dark-theme')) {
-      localStorage.setItem('theme', 'dark');
-    } else {
-      localStorage.setItem('theme', 'light');
-    }
-  });
-</script>
+</body>
+</html>

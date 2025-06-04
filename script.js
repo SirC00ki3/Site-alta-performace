@@ -1,7 +1,76 @@
 const API_KEY = '574ae54f6fd66e60543359675d336fe5';
 const IMG_BASE_URL = 'https://image.tmdb.org/t/p/w500';
 
-// Dados personalizados para a seção "Avaliações Populares"
+// Função para aplicar o tema salvo
+function aplicarTemaSalvo() {
+  const savedTheme = localStorage.getItem('theme');
+  const body = document.body;
+  const toggleBtn = document.getElementById('toggle-theme');
+
+  if (savedTheme === 'dark') {
+    body.classList.add('dark-theme');
+    toggleBtn.textContent = '🌙';
+  } else {
+    body.classList.remove('dark-theme');
+    toggleBtn.textContent = '☀️';
+  }
+}
+
+// Função para alternar o tema
+function configurarAlternanciaTema() {
+  const toggleBtn = document.getElementById('toggle-theme');
+  const body = document.body;
+
+  toggleBtn.addEventListener('click', () => {
+    const isDark = body.classList.toggle('dark-theme');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    toggleBtn.textContent = isDark ? '🌙' : '☀️';
+  });
+}
+
+// Função para configurar os botões de login
+function configurarBotoesLogin() {
+  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+  let sessionUser;
+
+  try {
+    sessionUser = JSON.parse(localStorage.getItem('sessionUser'));
+  } catch (e) {
+    sessionUser = null;
+  }
+
+  const btnEntrar = document.getElementById('btn-entrar');
+  const btnCadastrar = document.getElementById('btn-cadastrar');
+  const btnPerfil = document.getElementById('btn-perfil');
+  const btnSair = document.getElementById('btn-sair');
+
+  const isSessaoValida = sessionUser && sessionUser.name && sessionUser.email;
+
+  if (isLoggedIn && isSessaoValida) {
+    if (btnEntrar) btnEntrar.style.display = 'none';
+    if (btnCadastrar) btnCadastrar.style.display = 'none';
+    if (btnPerfil) btnPerfil.style.display = 'inline-block';
+    if (btnSair) btnSair.style.display = 'inline-block';
+  } else {
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('sessionUser');
+    if (btnEntrar) btnEntrar.style.display = 'inline-block';
+    if (btnCadastrar) btnCadastrar.style.display = 'inline-block';
+    if (btnPerfil) btnPerfil.style.display = 'none';
+    if (btnSair) btnSair.style.display = 'none';
+  }
+
+  if (btnSair) {
+    btnSair.addEventListener('click', (e) => {
+      e.preventDefault();
+      localStorage.removeItem('isLoggedIn');
+      localStorage.removeItem('sessionUser');
+      window.location.href = 'index.html';
+    });
+  }
+}
+
+// Dados de avaliações personalizadas
 const customReviews = [
   {
     title: 'Thunderbolts*',
@@ -10,7 +79,7 @@ const customReviews = [
     text: 'O MCU vs. a epidemia de solidão masculina',
     likes: 19454,
     vote: 4.8,
-    poster: '/qWQSnedj0LCUjWNp9fLcMtfgadp.jpg'
+    poster: 'images/thunderbolts_poster.jpg'
   },
   {
     title: 'Thunderbolts*',
@@ -19,7 +88,7 @@ const customReviews = [
     text: 'todo o esquadrão suicida',
     likes: 18449,
     vote: 4.7,
-    poster: '/qWQSnedj0LCUjWNp9fLcMtfgadp.jpg'
+    poster: 'images/thunderbolts_poster.jpg'
   },
   {
     title: 'Homem-Aranha: No Aranhaverso',
@@ -37,7 +106,7 @@ const customReviews = [
     text: 'quando seu círculo é pequeno, mas vocês estão deprimidos',
     likes: 11931,
     vote: 4.6,
-    poster: '/qWQSnedj0LCUjWNp9fLcMtfgadp.jpg'
+    poster: 'images/thunderbolts_poster.jpg'
   },
   {
     title: 'Thunderbolts*',
@@ -46,7 +115,7 @@ const customReviews = [
     text: 'Minha esposa não fala comigo depois de votar em Bucky Barnes para o Congresso. Diz que "ele matou John F. Kennedy". Só acho que está na hora de um forasteiro em Washington. Eu sou o babaca?',
     likes: 11117,
     vote: 4.5,
-    poster: '/qWQSnedj0LCUjWNp9fLcMtfgadp.jpg'
+    poster: 'images/thunderbolts_poster.jpg'
   },
   {
     title: 'Thunderbolts*',
@@ -55,15 +124,11 @@ const customReviews = [
     text: 'Cinco desajustados emocionalmente constipados são forçados a criar laços traumáticos sob o olhar atento de uma figura de autoridade moralmente falida e ah, hum, então este é o clube do café da manhã com uniforme tático. Eu vivo.',
     likes: 6500,
     vote: 4.2,
-    poster: '/qWQSnedj0LCUjWNp9fLcMtfgadp.jpg'
+    poster: 'images/thunderbolts_poster.jpg'
   }
 ];
 
-/**
- * Carrega e exibe filmes ou reviews em um contêiner da página.
- * @param {string} endpoint - Endpoint da TMDB API.
- * @param {string} containerId - ID do contêiner no HTML.
- */
+// Função para buscar e exibir filmes
 function fetchMovies(endpoint, containerId) {
   const container = document.getElementById(containerId);
   if (!container) return;
@@ -75,10 +140,15 @@ function fetchMovies(endpoint, containerId) {
     customReviews.forEach(review => {
       const card = document.createElement('div');
       card.className = 'review-card';
+
+      // Determinar se é imagem local ou do TMDB
+      const isTMDBPoster = review.poster.startsWith('/');
+      const posterURL = isTMDBPoster ? `${IMG_BASE_URL}${review.poster}` : review.poster;
+
       card.innerHTML = `
-        <img src="${IMG_BASE_URL}${review.poster}" alt="Poster do filme ${review.title}" />
+        <img src="${posterURL}" alt="${review.title} Poster" class="review-poster" />
         <div class="review-content">
-          <div class="review-title">${review.title} <span style="color: #888">(${review.year})</span></div>
+          <div class="review-title">${review.title} <span class="year">(${review.year})</span></div>
           <div class="review-user">👤 ${review.username}</div>
           <div class="review-text">${review.text}</div>
           <div class="review-likes">❤️ ${review.likes.toLocaleString()} curtidas</div>
@@ -101,8 +171,13 @@ function fetchMovies(endpoint, containerId) {
       data.results.forEach(movie => {
         const card = document.createElement('div');
         card.className = 'movie-card';
+
+        const posterURL = movie.poster_path 
+          ? `${IMG_BASE_URL}${movie.poster_path}` 
+          : 'images/placeholder.jpg'; // Caso não tenha poster
+
         card.innerHTML = `
-          <img src="${IMG_BASE_URL}${movie.poster_path}" alt="Capa de ${movie.title}" />
+          <img src="${posterURL}" alt="${movie.title}" />
           <div class="movie-info">
             <h3>${movie.title}</h3>
             <p>⭐ ${movie.vote_average.toFixed(1)}</p>
@@ -117,27 +192,17 @@ function fetchMovies(endpoint, containerId) {
     });
 }
 
-// Inicializa os dados nas seções ao carregar a página
-document.addEventListener('DOMContentLoaded', () => {
-  fetchMovies('/movie/popular', 'movies-container');             // Filmes Populares
+// Função principal para inicializar o aplicativo
+function inicializarAplicativo() {
+  aplicarTemaSalvo();
+  configurarAlternanciaTema();
+  configurarBotoesLogin();
+
+  // Chamadas das seções
+  fetchMovies('/movie/popular', 'movies-container'); // Filmes Populares
   fetchMovies('/trending/movie/week', 'weekly-popular-container'); // Populares da Semana
-  fetchMovies('/movie/top_rated', 'top-rated-container');        // Avaliações Populares (mock)
-  fetchMovies('/movie/now_playing', 'recent-releases-container'); // Recém Lançados
-});
-const btn = document.getElementById('toggle-theme-btn');
-const body = document.body;
+  fetchMovies('/movie/top_rated', 'top-rated-container'); // Avaliações Populares (mock)
+}
 
-document.addEventListener('DOMContentLoaded', () => {
-  const body = document.body;
-  const toggleBtn = document.getElementById('toggle-theme');
-
-  // Aplica o tema salvo
-  if (localStorage.getItem('theme') === 'dark') {
-    body.classList.add('dark-theme');
-  }
-
-  toggleBtn.addEventListener('click', () => {
-    body.classList.toggle('dark-theme');
-    localStorage.setItem('theme', body.classList.contains('dark-theme') ? 'dark' : 'light');
-  });
-});
+// Inicializar o aplicativo quando o DOM estiver carregado
+document.addEventListener('DOMContentLoaded', inicializarAplicativo);

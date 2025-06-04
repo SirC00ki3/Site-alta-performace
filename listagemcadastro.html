@@ -9,20 +9,24 @@
 <body>
 
   <!-- Cabeçalho com logo à esquerda e menu centralizado -->
-  <header class="navbar">
-    <div class="container-header">
-      <div class="logo-area">
-        <a href="index.html">
-          <img src="images/logo-concha.png" alt="Logo Concha" class="logo" />
-        </a>
-      </div>
-      <nav class="nav-links-center">
-        <a href="#">Filmes</a>
-        <a href="#">Séries</a>
-        <a href="minhalista.html">Minha lista</a>
+   <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo-area">
+        <img src="images/logo-concha.png" alt="Logo Concha" class="logo" />
+      </a>
+
+      <nav class="nav-links">
+        <a href="filmes.html">Filmes</a>
         <a href="#">Membros</a>
-        <a href="#">Diário</a>
+        <a href="#">Listas</a>
       </nav>
+
+       <div class="nav-actions">
+  <a href="login.html" id="btn-entrar">Entrar</a>
+  <a href="cadastro.html" class="btn" id="btn-cadastrar">Cadastre-se</a>
+  <a href="perfil.html" id="btn-perfil" style="display: none;">Perfil</a>
+  <a href="#" id="btn-sair" style="display: none;">Sair</a>
+</div>
     </div>
   </header>
 

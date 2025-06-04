@@ -32,3 +32,44 @@ function loadAllMovies() {
 }
 
 document.addEventListener('DOMContentLoaded', loadAllMovies);
+
+ // --- LOGIN / BOTÕES DE NAVEGAÇÃO ---
+  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+  let sessionUser;
+
+  try {
+    sessionUser = JSON.parse(localStorage.getItem('sessionUser'));
+  } catch (e) {
+    sessionUser = null;
+  }
+
+  const btnEntrar = document.getElementById('btn-entrar');
+  const btnCadastrar = document.getElementById('btn-cadastrar');
+  const btnPerfil = document.getElementById('btn-perfil');
+  const btnSair = document.getElementById('btn-sair');
+
+  const isSessaoValida = sessionUser && sessionUser.name && sessionUser.email;
+
+  if (isLoggedIn && isSessaoValida) {
+    if (btnEntrar) btnEntrar.style.display = 'none';
+    if (btnCadastrar) btnCadastrar.style.display = 'none';
+    if (btnPerfil) btnPerfil.style.display = 'inline-block';
+    if (btnSair) btnSair.style.display = 'inline-block';
+  } else {
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('sessionUser');
+    if (btnEntrar) btnEntrar.style.display = 'inline-block';
+    if (btnCadastrar) btnCadastrar.style.display = 'inline-block';
+    if (btnPerfil) btnPerfil.style.display = 'none';
+    if (btnSair) btnSair.style.display = 'none';
+  }
+
+  if (btnSair) {
+    btnSair.addEventListener('click', (e) => {
+      e.preventDefault();
+      localStorage.removeItem('isLoggedIn');
+      localStorage.removeItem('sessionUser');
+      window.location.href = 'index.html';
+    });
+  }
+;
